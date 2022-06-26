@@ -52,7 +52,7 @@ def run_github_search(api_url, search_query, extension, token_env):
             search_response = content["items"]
             return search_response
         else:
-            time.sleep(2)
+            time.sleep(10)
             logger.error(f"Search Response code: {response.status_code}. Continuing...")
     else:
         logger.error(
@@ -72,11 +72,13 @@ def github_api_get_params(api_url, search_query, token_env):
     returns: response - dict
     """
     logger.debug("<<<< 'Current Executing Function' >>>>")
+    #search_query += " user:Scuilion"
+    logger.info(f"apiurl '{api_url}', search_query: '{search_query}', token_env: '{token_env}'")
     if token_env == "public":
         token_var = "GITHUB_TOKEN"
-        time.sleep(3)
+        time.sleep(10)
     else:
-        time.sleep(2)
+        time.sleep(10)
         token_var = "GITHUB_ENTERPRISE_TOKEN"
         if "<< Enterprise Name >>" in api_url:
             logger.error(
@@ -130,7 +132,7 @@ def public_url_content_get(api_url):
         sys.exit(1)
 
     try:
-        time.sleep(3)
+        time.sleep(10)
         response = requests.get(
             api_url, auth=("token", os.getenv(token_var)), timeout=10
         )
@@ -165,7 +167,7 @@ def enterprise_url_content_get(api_url, header):
         sys.exit(1)
 
     try:
-        time.sleep(2)
+        time.sleep(10)
         response = requests.get(
             api_url,
             auth=("token", os.getenv(token_var)),
@@ -197,7 +199,7 @@ def get_github_public_commits(commits_api_url):
         sys.exit(1)
 
     try:
-        time.sleep(3)
+        time.sleep(10)
         response = requests.get(
             commits_api_url, auth=("token", os.getenv(token_var)), timeout=25
         )
@@ -231,7 +233,7 @@ def get_github_enterprise_commits(commits_api_url, header):
         sys.exit(1)
 
     try:
-        time.sleep(3)
+        time.sleep(10)
         response = requests.get(
             commits_api_url,
             auth=("token", os.getenv(token_var)),

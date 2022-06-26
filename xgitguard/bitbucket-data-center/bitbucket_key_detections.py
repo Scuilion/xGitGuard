@@ -16,7 +16,7 @@ limitations under the License.
 SPDX-License-Identifier: Apache-2.0
 """
 """
-xGitGuard Public GitHub Credential Detection Process
+xGitGuard Public GitHub Keys and Token Detection process
     xGitGuard detects the secret keys and tokens present in the public Github repository
     When Primary Keyword is given, run GitHub search with Primary Keyword
     Else, run search with Secondary Keywords and Extension combination
@@ -36,21 +36,20 @@ xGitGuard Public GitHub Credential Detection Process
     By default all configuration keys will be taken from config files
 
     # Run with Primary Keywords, Secondary Keywords and Extensions from config files:
-    python public_cred_detections.py
-
+    python public_key_detections.py
+    
     # Run with Primary Keywords, Secondary Keywords and Extensions from config files with ML:
-    python public_cred_detections.py -m Yes
+    python public_key_detections.py -m Yes
 
     # Run with Primary Keywords, Secondary Keywords from config file and given list of Extensions:
-    python public_cred_detections.py -e "py,txt"
+    python public_key_detections.py -e "py,txt"
 
     # Run for given Primary Keyword, Secondary Keyword and Extension without ML prediction:
-    python public_cred_detections.py -p "abc.xyz.com" -s "password" -e "py
+    python public_key_detections.py -p "abc.xyz.com" -s "token" -e "py"
 
     # Run for given Primary Keyword, Secondary Keyword and Extension with ML prediction and debug console logging:
-    python public_cred_detections.py -p "abc.xyz.com" -s "password" -e "py" -m Yes -l 10 -c Yes
+    python public_key_detections.py -p "abc.xyz.com" -s "token" -e "py" -m Yes -l 10 -c Yes
 """
-
 
 import argparse
 import hashlib
@@ -59,7 +58,7 @@ import os
 import re
 import sys
 from datetime import datetime
-import time
+
 import pandas as pd
 from urlextract import URLExtract
 
@@ -69,16 +68,15 @@ sys.path.insert(0, parent_dir)
 
 from common.configs_read import ConfigsData
 from common.data_format import (
-    credential_extractor,
     format_commit_details,
-    remove_url_from_creds,
+    keys_extractor,
+    remove_url_from_keys,
 )
 from common.github_calls import (
     get_github_public_commits,
     public_url_content_get,
     run_github_search,
 )
-
 from common.logger import create_logger
 from common.ml_process import entropy_calc, ml_prediction_process
 from ml_training.model import xgg_train_model
@@ -167,7 +165,6 @@ def format_detection(pkeyword, skeyword, url, code_content, secrets, keyword_cou
         )
         api_response_commit_data = get_github_public_commits(commits_api_url)
         commit_details = format_commit_details(api_response_commit_data)
-        logger.info(f"commit_details {commit_details}")
     except Exception as e:
         logger.warning(f"Github commit content formation error: {e}")
         commit_details = {}
@@ -179,7 +176,7 @@ def format_detection(pkeyword, skeyword, url, code_content, secrets, keyword_cou
     secret_data.insert(0, extension)
     secret_data.insert(0, skeyword)
     secret_data.insert(0, pkeyword)
-    secret_data.insert(0, "xGG_Public_Credential")
+    secret_data.insert(0, "xGG_Public_Key & Token")
     for secret in secrets:
         # Calculate confidence values for detected secrets
         confidence_score = calculate_confidence(skeyword, extension, secret)
@@ -187,35 +184,19 @@ def format_detection(pkeyword, skeyword, url, code_content, secrets, keyword_cou
         if confidence_score[1] > 1.5:
             valid_secret_row = [value for value in secret_data]
             secret_lines = re.findall(".*" + secret + ".*$", code_content, re.MULTILINE)
-            # code_line = secret
+            code_line = secret
             for secret_line in secret_lines:
                 if (
-                    (
-                        (skeyword in secret_line)
-                        and (secret_line != secret)
-                        and not (
-                            [
-                                element
-                                for element in ["http", "www", "uuid"]
-                                if (element in secret_line)
-                            ]
-                        )
-                        and (secret_line.find(skeyword) < secret_line.find(secret))
+                    (skeyword in secret_line)
+                    and (secret_line != secret)
+                    and not (
+                        [
+                            element
+                            for element in ["http", "www", "uuid"]
+                            if (element in secret_line)
+                        ]
                     )
-                    and (
-                        (
-                            secret_line.find(":") < secret_line.find(secret)
-                            and secret_line.find(":") > secret_line.find(skeyword)
-                        )
-                        or (
-                            secret_line.find("=") < secret_line.find(secret)
-                            and secret_line.find("=") > secret_line.find(skeyword)
-                        )
-                    )
-                    and (
-                        bool(re.match("^(?=.*[0-9])(?=.*[a-zA-Z])", secret))
-                        or (confidence_score[2] < 20)
-                    )
+                    and (secret_line.find(skeyword) < secret_line.find(secret))
                 ):
                     if len(secret_line) < 300:
                         code_line = secret_line
@@ -299,17 +280,8 @@ def process_search_urls(url_list, search_query):
                 )
                 continue
 
-            code_contents = remove_url_from_creds(code_content, skeyword)
-
-            try:
-                # for Reading Data only one time
-                if configs.stop_words:
-                    pass
-            except:
-                configs.read_stop_words(file_name="stop_words.csv")
-
-            secrets_data = credential_extractor(code_contents, configs.stop_words)
-            logger.info(f"secret_data: '${secrets_data}'")
+            code_contents = remove_url_from_keys(code_content)
+            secrets_data = keys_extractor(code_contents)
 
             keyword_counts = [
                 (code_content.lower().count(pkeyword.lower())),
@@ -356,7 +328,7 @@ def check_existing_detections(url_list, search_query):
         if configs.hashed_urls:
             pass
     except:
-        configs.read_hashed_url(file_name=file_prefix + "public_hashed_url_creds.csv")
+        configs.read_hashed_url(file_name=file_prefix + "public_hashed_url_keys.csv")
 
     if url_list:
         for url in url_list:
@@ -382,7 +354,7 @@ def process_search_results(search_response_lines, search_query, ml_prediction):
         Format and clean the code content
         Find the secrets
         Format the detections
-        Run the ML prediction on the detection
+        Run the ML prediction on the detection/ Collect the detections
         If detection is predicted, write the detections
         Write the hashed urls to file
 
@@ -404,9 +376,8 @@ def process_search_results(search_response_lines, search_query, ml_prediction):
 
     url_list = []
     hashed_urls_file = os.path.join(
-        configs.output_dir, file_prefix + "public_hashed_url_creds.csv"
+        configs.output_dir, file_prefix + "public_hashed_url_keys.csv"
     )
-
     for line in search_response_lines:
         html_url = line["html_url"]
         html_url = html_url.replace("blob/", "")
@@ -443,24 +414,24 @@ def process_search_results(search_response_lines, search_query, ml_prediction):
                         columns=configs.xgg_configs["secrets"]["public_data_columns"],
                     )
                 if not secrets_detected_df.empty:
+
                     if ml_prediction == True:
                         # for Reading training Data only one time
                         try:
                             if configs.training_data:
                                 pass
                         except:
-                            configs.read_training_data(
-                                file_name="public_cred_train.csv"
-                            )
+                            configs.read_training_data(file_name="public_key_train.csv")
 
                         secrets_ml_predicted = ml_prediction_process(
-                            model_name="public_xgg_cred_rf_model_object.pickle",
+                            model_name="public_xgg_key_rf_model_object.pickle",
                             training_data=configs.training_data,
                             detection_data=secrets_detected_df,
                             git_env="public",
                         )
 
                         if not secrets_ml_predicted.empty:
+
                             detection_writes_per_query += secrets_ml_predicted.shape[0]
                             secrets_ml_predicted = secrets_ml_predicted.drop(
                                 "Secret", 1
@@ -471,7 +442,7 @@ def process_search_results(search_response_lines, search_query, ml_prediction):
                             try:
                                 secrets_detected_file = os.path.join(
                                     configs.output_dir,
-                                    "xgg_ml_public_creds_detected.csv",
+                                    "xgg_ml_public_keys_detected.csv",
                                 )
                                 write_to_csv_file(
                                     secrets_ml_predicted, secrets_detected_file
@@ -489,7 +460,7 @@ def process_search_results(search_response_lines, search_query, ml_prediction):
                             )
                             try:
                                 secrets_detected_file = os.path.join(
-                                    configs.output_dir, "xgg_public_creds_detected.csv"
+                                    configs.output_dir, "xgg_public_keys_detected.csv"
                                 )
                                 write_to_csv_file(
                                     secrets_detected_df, secrets_detected_file
@@ -499,7 +470,7 @@ def process_search_results(search_response_lines, search_query, ml_prediction):
 
                 else:
                     logger.debug(
-                        "secrets_detected_df is empty. So skipping ML prediction."
+                        "secrets_detected_df is empty. So skipping collection/prediction."
                     )
             else:
                 logger.info("No Secrets in current search results")
@@ -537,7 +508,6 @@ def format_search_query_list(primary_keyword, secondary_keywords):
     else:
         search_query_list = secondary_keywords.copy()
 
-    logger.info(search_query_list)
     logger.info(f"Total search_query_list count: {len(search_query_list)}")
     return search_query_list
 
@@ -578,11 +548,12 @@ def run_detection(
     Run for xGG Scan with ML
         run_detection(ml_prediction=True)
 
-    Run for given Primary Keyword, Secondary Keyword and extension with ml prediction
+    Run for given Primary Keyword, Secondary Keyword and extension with Ml prediction
         run_detection(primary_keyword='my Keyword', secondary_keywords=["auth"], extensions=["py"], ml_prediction=True)
 
-    Run for given Primary Keyword, Secondary Keyword and extension without ml prediction
+    Run for given Primary Keyword, Secondary Keyword and extension without Ml prediction
         run_detection(primary_keyword='my Keyword', secondary_keywords=["auth"], extensions=["py"])
+
 
     Run without Primary Keyword, Secondary Keywords from config file and given list of extensions
         run_detection(extension = ["py","txt"])
@@ -601,11 +572,11 @@ def run_detection(
         if isinstance(secondary_keywords, list):
             configs.secondary_keywords = secondary_keywords
         else:
-            logger.error(f"Please pass secondary_keywords in List like '['password',]'")
+            logger.error(f"Please pass secondary_keywords in List like '['token',]'")
             sys.exit(1)
     else:
         # Get the secondary_keywords from secondary_keywords file
-        configs.read_secondary_keywords(file_name="secondary_creds.csv")
+        configs.read_secondary_keywords(file_name="secondary_keys.csv")
     logger.info(f"Total Secondary Keywords: {len(configs.secondary_keywords)}")
 
     if extensions:
@@ -621,7 +592,11 @@ def run_detection(
 
     if primary_keyword:
         logger.info(f"Primary Keyword: {primary_keyword}")
-        total_search_pairs = len(configs.secondary_keywords) * len(configs.extensions)
+        total_search_pairs = (
+            len(configs.secondary_keywords)
+            * len(configs.extensions)
+            * len(primary_keyword)
+        )
     else:
         logger.error(
             f"No Primary Keywords in Primary_keywords.csv.Please add appropriate domain names or keywords as per requirement.Also refer Readme for more details"
@@ -638,10 +613,9 @@ def run_detection(
     )
     if search_query_list:
         if ml_prediction:
-            logger.info("Training model")
             # Train Model if not present Already
             model_file = os.path.join(
-                configs.output_dir, "public_xgg_cred_rf_model_object.pickle"
+                configs.output_dir, "public_xgg_key_rf_model_object.pickle"
             )
             if os.path.exists(model_file):
                 logger.info(
@@ -652,8 +626,8 @@ def run_detection(
                     f"No persisted Trained Model present. So training and persisting a model now"
                 )
                 xgg_train_model(
-                    training_data_file="public_cred_train.csv",
-                    model_name="public_xgg_cred_rf_",
+                    training_data_file="public_key_train.csv",
+                    model_name="public_xgg_key_rf_",
                 )
     else:
         logger.info(f"No Search query to process. Ending.")
@@ -671,7 +645,6 @@ def run_detection(
             try:
                 # Search GitHub and return search response confidence_score
                 total_processed_search += 1
-                time.sleep(2)
                 search_response_lines = run_github_search(
                     configs.xgg_configs["github"]["public_api_url"],
                     search_query,
@@ -685,9 +658,7 @@ def run_detection(
                         new_results_per_query,
                         detections_per_query,
                     ) = process_search_results(
-                        search_response_lines,
-                        search_query,
-                        ml_prediction,
+                        search_response_lines, search_query, ml_prediction
                     )
                     logger.info(
                         f"Detection writes in current search query: {detection_writes_per_query}"
@@ -873,13 +844,12 @@ def arg_parser():
     returns: console_logging - Boolean - Default - True
     """
 
-    global file_prefix
-    global ml_prediction
-    global unmask_secret
-
     argparser = argparse.ArgumentParser()
     flag_choices = ["Y", "y", "Yes", "YES", "yes", "N", "n", "No", "NO", "no"]
     log_level_choices = [10, 20, 30, 40, 50]
+    global file_prefix
+    global ml_prediction
+    global unmask_secret
 
     argparser.add_argument(
         "-p",
@@ -941,7 +911,6 @@ def arg_parser():
         choices=log_level_choices,
         help="Pass the Logging level as for CRITICAL - 50, ERROR - 40  WARNING - 30  INFO  - 20  DEBUG - 10. Default is 20",
     )
-
     argparser.add_argument(
         "-c",
         "--console_logging",
@@ -1014,7 +983,7 @@ if __name__ == "__main__":
     # Setting up Logger
     setup_logger(log_level, console_logging)
 
-    logger.info("xGitGuard Credentials Detection Process Started")
+    logger.info("xGitGuard Keys and Token Detection Process Started")
     if ml_prediction:
         logger.info("Running the xGitGuard detection with ML Prediction filter")
     else:
@@ -1034,11 +1003,4 @@ if __name__ == "__main__":
     else:
         run_detections_from_file(secondary_keywords, extensions, ml_prediction)
 
-    secrets_detected_file = os.path.join(
-        configs.output_dir, "xgg_public_creds_detected.csv"
-    )
-
-    with open(secrets_detected_file, 'r') as fin:
-        logger.info(fin.read())
-
-    logger.info("xGitGuard Credentials Detection Process Completed")
+    logger.info("xGitGuard Keys and Token Detection Process Completed")

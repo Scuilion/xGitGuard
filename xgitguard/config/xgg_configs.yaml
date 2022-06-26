@@ -14,6 +14,10 @@ github:
   enterprise_commits_url: "https://github.<< Enterprise Name >>.com/api/v3/repos/{user_name}/{repo_name}/commits?path={file_path}"
   enterprise_header: { "Accept": "application/vnd.github.v3.raw" }
 
+bitbucket:
+  data_center_url: "https://stash.masergy.com"
+  throttle_seconds: 2
+
 secrets:
   public_data_columns:
     [

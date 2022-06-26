@@ -1,0 +1,2486 @@
+{
+  "scope": {
+    "type": "GLOBAL"
+  },
+  "code": {
+    "category": "primary",
+    "isLastPage": false,
+    "count": 55,
+    "start": 0,
+    "nextStart": 25,
+    "values": [
+      {
+        "repository": {
+          "slug": "webapps",
+          "id": 132,
+          "name": "Webapps",
+          "hierarchyId": "d0d877ae7ce9bd6b95da",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "project": {
+            "key": "NMS",
+            "id": 67,
+            "name": "Network Management Systems",
+            "description": "The NMS Team",
+            "public": false,
+            "type": "NORMAL"
+          },
+          "public": false
+        },
+        "file": "runbook/data/pages/cisco-ios/sys/priv_auth_fail.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 1,
+              "text": "======PRIV <em>AUTH</em> FAIL======"
+            },
+            {
+              "line": 2,
+              "text": "from Cisco-IOS SYS"
+            },
+            {
+              "line": 3,
+              "text": "=====Description====="
+            },
+            {
+              "line": 4,
+              "text": ""
+            },
+            {
+              "line": 5,
+              "text": "Enter descriptive text for the event here."
+            },
+            {
+              "line": 6,
+              "text": ""
+            },
+            {
+              "line": 7,
+              "text": "=====Troubleshooting====="
+            },
+            {
+              "line": 8,
+              "text": ""
+            },
+            {
+              "line": 9,
+              "text": "Enter how to troubleshoot this type of event (generically since you don&#x27;t have all the particulars)."
+            },
+            {
+              "line": 10,
+              "text": ""
+            },
+            {
+              "line": 11,
+              "text": "======Needs More Information======"
+            },
+            {
+              "line": 12,
+              "text": "You can send an email to [[nms.engineering@masergy.com|NMS Engineering]] if this topic needs more information. We will either help fill it out or engage the groups that can provide more information."
+            },
+            {
+              "line": 13,
+              "text": ""
+            },
+            {
+              "line": 14,
+              "text": "======Example Events======"
+            },
+            {
+              "line": 15,
+              "text": ""
+            },
+            {
+              "line": 16,
+              "text": ""
+            },
+            {
+              "line": 17,
+              "text": "[[http:&#x2F;&#x2F;webtop01.masergy.com&#x2F;m411&#x2F;m411.php?tablename=nc_alerts&amp;fields=NODE,FIRSTOCCURRENCE,LASTOCCURRENCE,TALLY,LOCALPRIOBJ,AGENT,ALERTGROUP,SUMMARY&amp;agent=Cisco-IOS ( SYS )&amp;alertgroup=PRIV <em>AUTH</em> FAIL*&amp;firstocc=1d&amp;page_title=&lt;br&gt;&lt;br&gt;&lt;H1&gt;NC Events - Occuring in last day&lt;&#x2F;H1&gt;&lt;H2&gt;Agent=Cisco-IOS ( SYS )&lt;&#x2F;H2&gt;&lt;H2&gt;Alertgroup=PRIV <em>AUTH</em> FAIL*&lt;&#x2F;H2&gt;|1 Day of Example Events]]\\\\"
+            },
+            {
+              "line": 18,
+              "text": "[[http:&#x2F;&#x2F;webtop01.masergy.com&#x2F;m411&#x2F;m411.php?tablename=nc_alerts&amp;fields=NODE,FIRSTOCCURRENCE,LASTOCCURRENCE,TALLY,LOCALPRIOBJ,AGENT,ALERTGROUP,SUMMARY&amp;agent=Cisco-IOS ( SYS )&amp;alertgroup=PRIV <em>AUTH</em> FAIL*&amp;firstocc=7d&amp;page_title=&lt;br&gt;&lt;br&gt;&lt;H1&gt;NC Events - Occuring in last 7 days&lt;&#x2F;H1&gt;&lt;H2&gt;Agent=Cisco-IOS ( SYS )&lt;&#x2F;H2&gt;&lt;H2&gt;Alertgroup=PRIV <em>AUTH</em> FAIL*&lt;&#x2F;H2&gt;|7 Days of Example Events]]\\\\"
+            },
+            {
+              "line": 19,
+              "text": "[[http:&#x2F;&#x2F;webtop01.masergy.com&#x2F;m411&#x2F;m411.php?"
+            }
+          ],
+          [
+            {
+              "line": 0,
+              "text": "tablename=nc_alerts&amp;fields=NODE,FIRSTOCCURRENCE,LASTOCCURRENCE,TALLY,LOCALPRIOBJ,AGENT,ALERTGROUP,SUMMARY&amp;agent=Cisco-IOS ( SYS )&amp;alertgroup=PRIV <em>AUTH</em> FAIL*&amp;firstocc=30d&amp;page_title=&lt;br&gt;&lt;br&gt;&lt;H1&gt;NC Events - Occuring in last 30 days&lt;&#x2F;H1&gt;&lt;H2&gt;Agent=Cisco-IOS ( SYS )&lt;&#x2F;H2&gt;&lt;H2&gt;Alertgroup=PRIV <em>AUTH</em> FAIL*&lt;&#x2F;H2&gt;|30 Days of Example Events]]\\\\"
+            }
+          ]
+        ],
+        "pathMatches": [
+          {
+            "text": "runbook/data/pages/cisco-ios/sys/"
+          },
+          {
+            "text": "priv_"
+          },
+          {
+            "text": "auth",
+            "match": true
+          },
+          {
+            "text": "_fail.txt"
+          }
+        ],
+        "hitCount": 7
+      },
+      {
+        "repository": {
+          "slug": "nms",
+          "id": 58,
+          "name": "NMS",
+          "hierarchyId": "a5f13d54b523987b3068",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "project": {
+            "key": "NMS",
+            "id": 67,
+            "name": "Network Management Systems",
+            "description": "The NMS Team",
+            "public": false,
+            "type": "NORMAL"
+          },
+          "public": false
+        },
+        "file": "apache-html/runbook/data/pages/cisco-ios/sys/priv_auth_fail.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 1,
+              "text": "======PRIV <em>AUTH</em> FAIL======"
+            },
+            {
+              "line": 2,
+              "text": "from Cisco-IOS SYS"
+            },
+            {
+              "line": 3,
+              "text": "=====Description====="
+            },
+            {
+              "line": 4,
+              "text": ""
+            },
+            {
+              "line": 5,
+              "text": "Enter descriptive text for the event here."
+            },
+            {
+              "line": 6,
+              "text": ""
+            },
+            {
+              "line": 7,
+              "text": "=====Troubleshooting====="
+            },
+            {
+              "line": 8,
+              "text": ""
+            },
+            {
+              "line": 9,
+              "text": "Enter how to troubleshoot this type of event (generically since you don&#x27;t have all the particulars)."
+            },
+            {
+              "line": 10,
+              "text": ""
+            },
+            {
+              "line": 11,
+              "text": "======Needs More Information======"
+            },
+            {
+              "line": 12,
+              "text": "You can send an email to [[nms.engineering@masergy.com|NMS Engineering]] if this topic needs more information. We will either help fill it out or engage the groups that can provide more information."
+            },
+            {
+              "line": 13,
+              "text": ""
+            },
+            {
+              "line": 14,
+              "text": "======Example Events======"
+            },
+            {
+              "line": 15,
+              "text": ""
+            },
+            {
+              "line": 16,
+              "text": ""
+            },
+            {
+              "line": 17,
+              "text": "[[http:&#x2F;&#x2F;webtop01.masergy.com&#x2F;m411&#x2F;m411.php?tablename=nc_alerts&amp;fields=NODE,FIRSTOCCURRENCE,LASTOCCURRENCE,TALLY,LOCALPRIOBJ,AGENT,ALERTGROUP,SUMMARY&amp;agent=Cisco-IOS ( SYS )&amp;alertgroup=PRIV <em>AUTH</em> FAIL*&amp;firstocc=1d&amp;page_title=&lt;br&gt;&lt;br&gt;&lt;H1&gt;NC Events - Occuring in last day&lt;&#x2F;H1&gt;&lt;H2&gt;Agent=Cisco-IOS ( SYS )&lt;&#x2F;H2&gt;&lt;H2&gt;Alertgroup=PRIV <em>AUTH</em> FAIL*&lt;&#x2F;H2&gt;|1 Day of Example Events]]\\\\"
+            },
+            {
+              "line": 18,
+              "text": "[[http:&#x2F;&#x2F;webtop01.masergy.com&#x2F;m411&#x2F;m411.php?tablename=nc_alerts&amp;fields=NODE,FIRSTOCCURRENCE,LASTOCCURRENCE,TALLY,LOCALPRIOBJ,AGENT,ALERTGROUP,SUMMARY&amp;agent=Cisco-IOS ( SYS )&amp;alertgroup=PRIV <em>AUTH</em> FAIL*&amp;firstocc=7d&amp;page_title=&lt;br&gt;&lt;br&gt;&lt;H1&gt;NC Events - Occuring in last 7 days&lt;&#x2F;H1&gt;&lt;H2&gt;Agent=Cisco-IOS ( SYS )&lt;&#x2F;H2&gt;&lt;H2&gt;Alertgroup=PRIV <em>AUTH</em> FAIL*&lt;&#x2F;H2&gt;|7 Days of Example Events]]\\\\"
+            },
+            {
+              "line": 19,
+              "text": "[[http:&#x2F;&#x2F;webtop01.masergy.com&#x2F;m411&#x2F;m411.php?"
+            }
+          ],
+          [
+            {
+              "line": 0,
+              "text": "tablename=nc_alerts&amp;fields=NODE,FIRSTOCCURRENCE,LASTOCCURRENCE,TALLY,LOCALPRIOBJ,AGENT,ALERTGROUP,SUMMARY&amp;agent=Cisco-IOS ( SYS )&amp;alertgroup=PRIV <em>AUTH</em> FAIL*&amp;firstocc=30d&amp;page_title=&lt;br&gt;&lt;br&gt;&lt;H1&gt;NC Events - Occuring in last 30 days&lt;&#x2F;H1&gt;&lt;H2&gt;Agent=Cisco-IOS ( SYS )&lt;&#x2F;H2&gt;&lt;H2&gt;Alertgroup=PRIV <em>AUTH</em> FAIL*&lt;&#x2F;H2&gt;|30 Days of Example Events]]\\\\"
+            }
+          ]
+        ],
+        "pathMatches": [
+          {
+            "text": "apache-html/runbook/data/pages/cisco-ios/sys/"
+          },
+          {
+            "text": "priv_"
+          },
+          {
+            "text": "auth",
+            "match": true
+          },
+          {
+            "text": "_fail.txt"
+          }
+        ],
+        "hitCount": 7
+      },
+      {
+        "repository": {
+          "slug": "nms",
+          "id": 1440,
+          "name": "NMS",
+          "hierarchyId": "a5f13d54b523987b3068",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "origin": {
+            "slug": "nms",
+            "id": 928,
+            "name": "NMS",
+            "hierarchyId": "a5f13d54b523987b3068",
+            "scmId": "git",
+            "state": "AVAILABLE",
+            "statusMessage": "Available",
+            "forkable": true,
+            "origin": {
+              "slug": "nms",
+              "id": 58,
+              "name": "NMS",
+              "hierarchyId": "a5f13d54b523987b3068",
+              "scmId": "git",
+              "state": "AVAILABLE",
+              "statusMessage": "Available",
+              "forkable": true,
+              "project": {
+                "key": "NMS",
+                "id": 67,
+                "name": "Network Management Systems",
+                "description": "The NMS Team",
+                "public": false,
+                "type": "NORMAL"
+              },
+              "public": false
+            },
+            "project": {
+              "key": "~APRICE",
+              "id": 102,
+              "name": "Alan Price",
+              "type": "PERSONAL",
+              "owner": {
+                "name": "aprice",
+                "emailAddress": "alan.price@masergy.com",
+                "id": 160,
+                "displayName": "Alan Price",
+                "active": true,
+                "slug": "aprice",
+                "type": "NORMAL"
+              }
+            },
+            "public": false
+          },
+          "project": {
+            "key": "~SGONZALES",
+            "id": 547,
+            "name": "Sabas Gonzales",
+            "type": "PERSONAL",
+            "owner": {
+              "name": "sgonzales",
+              "emailAddress": "sabas.gonzales@masergy.com",
+              "id": 2996,
+              "displayName": "Sabas Gonzales",
+              "active": true,
+              "slug": "sgonzales",
+              "type": "NORMAL"
+            }
+          },
+          "public": false
+        },
+        "file": "apache-html/runbook/data/pages/cisco-ios/sys/priv_auth_fail.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 1,
+              "text": "======PRIV <em>AUTH</em> FAIL======"
+            },
+            {
+              "line": 2,
+              "text": "from Cisco-IOS SYS"
+            },
+            {
+              "line": 3,
+              "text": "=====Description====="
+            },
+            {
+              "line": 4,
+              "text": ""
+            },
+            {
+              "line": 5,
+              "text": "Enter descriptive text for the event here."
+            },
+            {
+              "line": 6,
+              "text": ""
+            },
+            {
+              "line": 7,
+              "text": "=====Troubleshooting====="
+            },
+            {
+              "line": 8,
+              "text": ""
+            },
+            {
+              "line": 9,
+              "text": "Enter how to troubleshoot this type of event (generically since you don&#x27;t have all the particulars)."
+            },
+            {
+              "line": 10,
+              "text": ""
+            },
+            {
+              "line": 11,
+              "text": "======Needs More Information======"
+            },
+            {
+              "line": 12,
+              "text": "You can send an email to [[nms.engineering@masergy.com|NMS Engineering]] if this topic needs more information. We will either help fill it out or engage the groups that can provide more information."
+            },
+            {
+              "line": 13,
+              "text": ""
+            },
+            {
+              "line": 14,
+              "text": "======Example Events======"
+            },
+            {
+              "line": 15,
+              "text": ""
+            },
+            {
+              "line": 16,
+              "text": ""
+            },
+            {
+              "line": 17,
+              "text": "[[http:&#x2F;&#x2F;webtop01.masergy.com&#x2F;m411&#x2F;m411.php?tablename=nc_alerts&amp;fields=NODE,FIRSTOCCURRENCE,LASTOCCURRENCE,TALLY,LOCALPRIOBJ,AGENT,ALERTGROUP,SUMMARY&amp;agent=Cisco-IOS ( SYS )&amp;alertgroup=PRIV <em>AUTH</em> FAIL*&amp;firstocc=1d&amp;page_title=&lt;br&gt;&lt;br&gt;&lt;H1&gt;NC Events - Occuring in last day&lt;&#x2F;H1&gt;&lt;H2&gt;Agent=Cisco-IOS ( SYS )&lt;&#x2F;H2&gt;&lt;H2&gt;Alertgroup=PRIV <em>AUTH</em> FAIL*&lt;&#x2F;H2&gt;|1 Day of Example Events]]\\\\"
+            },
+            {
+              "line": 18,
+              "text": "[[http:&#x2F;&#x2F;webtop01.masergy.com&#x2F;m411&#x2F;m411.php?tablename=nc_alerts&amp;fields=NODE,FIRSTOCCURRENCE,LASTOCCURRENCE,TALLY,LOCALPRIOBJ,AGENT,ALERTGROUP,SUMMARY&amp;agent=Cisco-IOS ( SYS )&amp;alertgroup=PRIV <em>AUTH</em> FAIL*&amp;firstocc=7d&amp;page_title=&lt;br&gt;&lt;br&gt;&lt;H1&gt;NC Events - Occuring in last 7 days&lt;&#x2F;H1&gt;&lt;H2&gt;Agent=Cisco-IOS ( SYS )&lt;&#x2F;H2&gt;&lt;H2&gt;Alertgroup=PRIV <em>AUTH</em> FAIL*&lt;&#x2F;H2&gt;|7 Days of Example Events]]\\\\"
+            },
+            {
+              "line": 19,
+              "text": "[[http:&#x2F;&#x2F;webtop01.masergy.com&#x2F;m411&#x2F;m411.php?"
+            }
+          ],
+          [
+            {
+              "line": 0,
+              "text": "tablename=nc_alerts&amp;fields=NODE,FIRSTOCCURRENCE,LASTOCCURRENCE,TALLY,LOCALPRIOBJ,AGENT,ALERTGROUP,SUMMARY&amp;agent=Cisco-IOS ( SYS )&amp;alertgroup=PRIV <em>AUTH</em> FAIL*&amp;firstocc=30d&amp;page_title=&lt;br&gt;&lt;br&gt;&lt;H1&gt;NC Events - Occuring in last 30 days&lt;&#x2F;H1&gt;&lt;H2&gt;Agent=Cisco-IOS ( SYS )&lt;&#x2F;H2&gt;&lt;H2&gt;Alertgroup=PRIV <em>AUTH</em> FAIL*&lt;&#x2F;H2&gt;|30 Days of Example Events]]\\\\"
+            }
+          ]
+        ],
+        "pathMatches": [
+          {
+            "text": "apache-html/runbook/data/pages/cisco-ios/sys/"
+          },
+          {
+            "text": "priv_"
+          },
+          {
+            "text": "auth",
+            "match": true
+          },
+          {
+            "text": "_fail.txt"
+          }
+        ],
+        "hitCount": 7
+      },
+      {
+        "repository": {
+          "slug": "nms",
+          "id": 928,
+          "name": "NMS",
+          "hierarchyId": "a5f13d54b523987b3068",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "origin": {
+            "slug": "nms",
+            "id": 58,
+            "name": "NMS",
+            "hierarchyId": "a5f13d54b523987b3068",
+            "scmId": "git",
+            "state": "AVAILABLE",
+            "statusMessage": "Available",
+            "forkable": true,
+            "project": {
+              "key": "NMS",
+              "id": 67,
+              "name": "Network Management Systems",
+              "description": "The NMS Team",
+              "public": false,
+              "type": "NORMAL"
+            },
+            "public": false
+          },
+          "project": {
+            "key": "~APRICE",
+            "id": 102,
+            "name": "Alan Price",
+            "type": "PERSONAL",
+            "owner": {
+              "name": "aprice",
+              "emailAddress": "alan.price@masergy.com",
+              "id": 160,
+              "displayName": "Alan Price",
+              "active": true,
+              "slug": "aprice",
+              "type": "NORMAL"
+            }
+          },
+          "public": false
+        },
+        "file": "apache-html/runbook/data/pages/cisco-ios/sys/priv_auth_fail.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 1,
+              "text": "======PRIV <em>AUTH</em> FAIL======"
+            },
+            {
+              "line": 2,
+              "text": "from Cisco-IOS SYS"
+            },
+            {
+              "line": 3,
+              "text": "=====Description====="
+            },
+            {
+              "line": 4,
+              "text": ""
+            },
+            {
+              "line": 5,
+              "text": "Enter descriptive text for the event here."
+            },
+            {
+              "line": 6,
+              "text": ""
+            },
+            {
+              "line": 7,
+              "text": "=====Troubleshooting====="
+            },
+            {
+              "line": 8,
+              "text": ""
+            },
+            {
+              "line": 9,
+              "text": "Enter how to troubleshoot this type of event (generically since you don&#x27;t have all the particulars)."
+            },
+            {
+              "line": 10,
+              "text": ""
+            },
+            {
+              "line": 11,
+              "text": "======Needs More Information======"
+            },
+            {
+              "line": 12,
+              "text": "You can send an email to [[nms.engineering@masergy.com|NMS Engineering]] if this topic needs more information. We will either help fill it out or engage the groups that can provide more information."
+            },
+            {
+              "line": 13,
+              "text": ""
+            },
+            {
+              "line": 14,
+              "text": "======Example Events======"
+            },
+            {
+              "line": 15,
+              "text": ""
+            },
+            {
+              "line": 16,
+              "text": ""
+            },
+            {
+              "line": 17,
+              "text": "[[http:&#x2F;&#x2F;webtop01.masergy.com&#x2F;m411&#x2F;m411.php?tablename=nc_alerts&amp;fields=NODE,FIRSTOCCURRENCE,LASTOCCURRENCE,TALLY,LOCALPRIOBJ,AGENT,ALERTGROUP,SUMMARY&amp;agent=Cisco-IOS ( SYS )&amp;alertgroup=PRIV <em>AUTH</em> FAIL*&amp;firstocc=1d&amp;page_title=&lt;br&gt;&lt;br&gt;&lt;H1&gt;NC Events - Occuring in last day&lt;&#x2F;H1&gt;&lt;H2&gt;Agent=Cisco-IOS ( SYS )&lt;&#x2F;H2&gt;&lt;H2&gt;Alertgroup=PRIV <em>AUTH</em> FAIL*&lt;&#x2F;H2&gt;|1 Day of Example Events]]\\\\"
+            },
+            {
+              "line": 18,
+              "text": "[[http:&#x2F;&#x2F;webtop01.masergy.com&#x2F;m411&#x2F;m411.php?tablename=nc_alerts&amp;fields=NODE,FIRSTOCCURRENCE,LASTOCCURRENCE,TALLY,LOCALPRIOBJ,AGENT,ALERTGROUP,SUMMARY&amp;agent=Cisco-IOS ( SYS )&amp;alertgroup=PRIV <em>AUTH</em> FAIL*&amp;firstocc=7d&amp;page_title=&lt;br&gt;&lt;br&gt;&lt;H1&gt;NC Events - Occuring in last 7 days&lt;&#x2F;H1&gt;&lt;H2&gt;Agent=Cisco-IOS ( SYS )&lt;&#x2F;H2&gt;&lt;H2&gt;Alertgroup=PRIV <em>AUTH</em> FAIL*&lt;&#x2F;H2&gt;|7 Days of Example Events]]\\\\"
+            },
+            {
+              "line": 19,
+              "text": "[[http:&#x2F;&#x2F;webtop01.masergy.com&#x2F;m411&#x2F;m411.php?"
+            }
+          ],
+          [
+            {
+              "line": 0,
+              "text": "tablename=nc_alerts&amp;fields=NODE,FIRSTOCCURRENCE,LASTOCCURRENCE,TALLY,LOCALPRIOBJ,AGENT,ALERTGROUP,SUMMARY&amp;agent=Cisco-IOS ( SYS )&amp;alertgroup=PRIV <em>AUTH</em> FAIL*&amp;firstocc=30d&amp;page_title=&lt;br&gt;&lt;br&gt;&lt;H1&gt;NC Events - Occuring in last 30 days&lt;&#x2F;H1&gt;&lt;H2&gt;Agent=Cisco-IOS ( SYS )&lt;&#x2F;H2&gt;&lt;H2&gt;Alertgroup=PRIV <em>AUTH</em> FAIL*&lt;&#x2F;H2&gt;|30 Days of Example Events]]\\\\"
+            }
+          ]
+        ],
+        "pathMatches": [
+          {
+            "text": "apache-html/runbook/data/pages/cisco-ios/sys/"
+          },
+          {
+            "text": "priv_"
+          },
+          {
+            "text": "auth",
+            "match": true
+          },
+          {
+            "text": "_fail.txt"
+          }
+        ],
+        "hitCount": 7
+      },
+      {
+        "repository": {
+          "slug": "nms",
+          "id": 1043,
+          "name": "NMS",
+          "hierarchyId": "a5f13d54b523987b3068",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "origin": {
+            "slug": "nms",
+            "id": 58,
+            "name": "NMS",
+            "hierarchyId": "a5f13d54b523987b3068",
+            "scmId": "git",
+            "state": "AVAILABLE",
+            "statusMessage": "Available",
+            "forkable": true,
+            "project": {
+              "key": "NMS",
+              "id": 67,
+              "name": "Network Management Systems",
+              "description": "The NMS Team",
+              "public": false,
+              "type": "NORMAL"
+            },
+            "public": false
+          },
+          "project": {
+            "key": "ARS",
+            "id": 482,
+            "name": "Archives",
+            "description": "A project for archiving repos. If you're too afraid to delete the repo but want to clean up your project, put it here.",
+            "public": false,
+            "type": "NORMAL"
+          },
+          "public": true
+        },
+        "file": "apache-html/runbook/data/pages/cisco-ios/sys/priv_auth_fail.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 1,
+              "text": "======PRIV <em>AUTH</em> FAIL======"
+            },
+            {
+              "line": 2,
+              "text": "from Cisco-IOS SYS"
+            },
+            {
+              "line": 3,
+              "text": "=====Description====="
+            },
+            {
+              "line": 4,
+              "text": ""
+            },
+            {
+              "line": 5,
+              "text": "Enter descriptive text for the event here."
+            },
+            {
+              "line": 6,
+              "text": ""
+            },
+            {
+              "line": 7,
+              "text": "=====Troubleshooting====="
+            },
+            {
+              "line": 8,
+              "text": ""
+            },
+            {
+              "line": 9,
+              "text": "Enter how to troubleshoot this type of event (generically since you don&#x27;t have all the particulars)."
+            },
+            {
+              "line": 10,
+              "text": ""
+            },
+            {
+              "line": 11,
+              "text": "======Needs More Information======"
+            },
+            {
+              "line": 12,
+              "text": "You can send an email to [[nms.engineering@masergy.com|NMS Engineering]] if this topic needs more information. We will either help fill it out or engage the groups that can provide more information."
+            },
+            {
+              "line": 13,
+              "text": ""
+            },
+            {
+              "line": 14,
+              "text": "======Example Events======"
+            },
+            {
+              "line": 15,
+              "text": ""
+            },
+            {
+              "line": 16,
+              "text": ""
+            },
+            {
+              "line": 17,
+              "text": "[[http:&#x2F;&#x2F;webtop01.masergy.com&#x2F;m411&#x2F;m411.php?tablename=nc_alerts&amp;fields=NODE,FIRSTOCCURRENCE,LASTOCCURRENCE,TALLY,LOCALPRIOBJ,AGENT,ALERTGROUP,SUMMARY&amp;agent=Cisco-IOS ( SYS )&amp;alertgroup=PRIV <em>AUTH</em> FAIL*&amp;firstocc=1d&amp;page_title=&lt;br&gt;&lt;br&gt;&lt;H1&gt;NC Events - Occuring in last day&lt;&#x2F;H1&gt;&lt;H2&gt;Agent=Cisco-IOS ( SYS )&lt;&#x2F;H2&gt;&lt;H2&gt;Alertgroup=PRIV <em>AUTH</em> FAIL*&lt;&#x2F;H2&gt;|1 Day of Example Events]]\\\\"
+            },
+            {
+              "line": 18,
+              "text": "[[http:&#x2F;&#x2F;webtop01.masergy.com&#x2F;m411&#x2F;m411.php?tablename=nc_alerts&amp;fields=NODE,FIRSTOCCURRENCE,LASTOCCURRENCE,TALLY,LOCALPRIOBJ,AGENT,ALERTGROUP,SUMMARY&amp;agent=Cisco-IOS ( SYS )&amp;alertgroup=PRIV <em>AUTH</em> FAIL*&amp;firstocc=7d&amp;page_title=&lt;br&gt;&lt;br&gt;&lt;H1&gt;NC Events - Occuring in last 7 days&lt;&#x2F;H1&gt;&lt;H2&gt;Agent=Cisco-IOS ( SYS )&lt;&#x2F;H2&gt;&lt;H2&gt;Alertgroup=PRIV <em>AUTH</em> FAIL*&lt;&#x2F;H2&gt;|7 Days of Example Events]]\\\\"
+            },
+            {
+              "line": 19,
+              "text": "[[http:&#x2F;&#x2F;webtop01.masergy.com&#x2F;m411&#x2F;m411.php?"
+            }
+          ],
+          [
+            {
+              "line": 0,
+              "text": "tablename=nc_alerts&amp;fields=NODE,FIRSTOCCURRENCE,LASTOCCURRENCE,TALLY,LOCALPRIOBJ,AGENT,ALERTGROUP,SUMMARY&amp;agent=Cisco-IOS ( SYS )&amp;alertgroup=PRIV <em>AUTH</em> FAIL*&amp;firstocc=30d&amp;page_title=&lt;br&gt;&lt;br&gt;&lt;H1&gt;NC Events - Occuring in last 30 days&lt;&#x2F;H1&gt;&lt;H2&gt;Agent=Cisco-IOS ( SYS )&lt;&#x2F;H2&gt;&lt;H2&gt;Alertgroup=PRIV <em>AUTH</em> FAIL*&lt;&#x2F;H2&gt;|30 Days of Example Events]]\\\\"
+            }
+          ]
+        ],
+        "pathMatches": [
+          {
+            "text": "apache-html/runbook/data/pages/cisco-ios/sys/"
+          },
+          {
+            "text": "priv_"
+          },
+          {
+            "text": "auth",
+            "match": true
+          },
+          {
+            "text": "_fail.txt"
+          }
+        ],
+        "hitCount": 7
+      },
+      {
+        "repository": {
+          "slug": "nms",
+          "id": 988,
+          "name": "NMS",
+          "hierarchyId": "a5f13d54b523987b3068",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "origin": {
+            "slug": "nms",
+            "id": 58,
+            "name": "NMS",
+            "hierarchyId": "a5f13d54b523987b3068",
+            "scmId": "git",
+            "state": "AVAILABLE",
+            "statusMessage": "Available",
+            "forkable": true,
+            "project": {
+              "key": "NMS",
+              "id": 67,
+              "name": "Network Management Systems",
+              "description": "The NMS Team",
+              "public": false,
+              "type": "NORMAL"
+            },
+            "public": false
+          },
+          "project": {
+            "key": "~HCAMPBELL",
+            "id": 449,
+            "name": "Harold Campbell",
+            "type": "PERSONAL",
+            "owner": {
+              "name": "hcampbell",
+              "emailAddress": "harold.campbell@masergy.com",
+              "id": 2107,
+              "displayName": "Harold Campbell",
+              "active": true,
+              "slug": "hcampbell",
+              "type": "NORMAL"
+            }
+          },
+          "public": false
+        },
+        "file": "apache-html/runbook/data/pages/cisco-ios/sys/priv_auth_fail.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 1,
+              "text": "======PRIV <em>AUTH</em> FAIL======"
+            },
+            {
+              "line": 2,
+              "text": "from Cisco-IOS SYS"
+            },
+            {
+              "line": 3,
+              "text": "=====Description====="
+            },
+            {
+              "line": 4,
+              "text": ""
+            },
+            {
+              "line": 5,
+              "text": "Enter descriptive text for the event here."
+            },
+            {
+              "line": 6,
+              "text": ""
+            },
+            {
+              "line": 7,
+              "text": "=====Troubleshooting====="
+            },
+            {
+              "line": 8,
+              "text": ""
+            },
+            {
+              "line": 9,
+              "text": "Enter how to troubleshoot this type of event (generically since you don&#x27;t have all the particulars)."
+            },
+            {
+              "line": 10,
+              "text": ""
+            },
+            {
+              "line": 11,
+              "text": "======Needs More Information======"
+            },
+            {
+              "line": 12,
+              "text": "You can send an email to [[nms.engineering@masergy.com|NMS Engineering]] if this topic needs more information. We will either help fill it out or engage the groups that can provide more information."
+            },
+            {
+              "line": 13,
+              "text": ""
+            },
+            {
+              "line": 14,
+              "text": "======Example Events======"
+            },
+            {
+              "line": 15,
+              "text": ""
+            },
+            {
+              "line": 16,
+              "text": ""
+            },
+            {
+              "line": 17,
+              "text": "[[http:&#x2F;&#x2F;webtop01.masergy.com&#x2F;m411&#x2F;m411.php?tablename=nc_alerts&amp;fields=NODE,FIRSTOCCURRENCE,LASTOCCURRENCE,TALLY,LOCALPRIOBJ,AGENT,ALERTGROUP,SUMMARY&amp;agent=Cisco-IOS ( SYS )&amp;alertgroup=PRIV <em>AUTH</em> FAIL*&amp;firstocc=1d&amp;page_title=&lt;br&gt;&lt;br&gt;&lt;H1&gt;NC Events - Occuring in last day&lt;&#x2F;H1&gt;&lt;H2&gt;Agent=Cisco-IOS ( SYS )&lt;&#x2F;H2&gt;&lt;H2&gt;Alertgroup=PRIV <em>AUTH</em> FAIL*&lt;&#x2F;H2&gt;|1 Day of Example Events]]\\\\"
+            },
+            {
+              "line": 18,
+              "text": "[[http:&#x2F;&#x2F;webtop01.masergy.com&#x2F;m411&#x2F;m411.php?tablename=nc_alerts&amp;fields=NODE,FIRSTOCCURRENCE,LASTOCCURRENCE,TALLY,LOCALPRIOBJ,AGENT,ALERTGROUP,SUMMARY&amp;agent=Cisco-IOS ( SYS )&amp;alertgroup=PRIV <em>AUTH</em> FAIL*&amp;firstocc=7d&amp;page_title=&lt;br&gt;&lt;br&gt;&lt;H1&gt;NC Events - Occuring in last 7 days&lt;&#x2F;H1&gt;&lt;H2&gt;Agent=Cisco-IOS ( SYS )&lt;&#x2F;H2&gt;&lt;H2&gt;Alertgroup=PRIV <em>AUTH</em> FAIL*&lt;&#x2F;H2&gt;|7 Days of Example Events]]\\\\"
+            },
+            {
+              "line": 19,
+              "text": "[[http:&#x2F;&#x2F;webtop01.masergy.com&#x2F;m411&#x2F;m411.php?"
+            }
+          ],
+          [
+            {
+              "line": 0,
+              "text": "tablename=nc_alerts&amp;fields=NODE,FIRSTOCCURRENCE,LASTOCCURRENCE,TALLY,LOCALPRIOBJ,AGENT,ALERTGROUP,SUMMARY&amp;agent=Cisco-IOS ( SYS )&amp;alertgroup=PRIV <em>AUTH</em> FAIL*&amp;firstocc=30d&amp;page_title=&lt;br&gt;&lt;br&gt;&lt;H1&gt;NC Events - Occuring in last 30 days&lt;&#x2F;H1&gt;&lt;H2&gt;Agent=Cisco-IOS ( SYS )&lt;&#x2F;H2&gt;&lt;H2&gt;Alertgroup=PRIV <em>AUTH</em> FAIL*&lt;&#x2F;H2&gt;|30 Days of Example Events]]\\\\"
+            }
+          ]
+        ],
+        "pathMatches": [
+          {
+            "text": "apache-html/runbook/data/pages/cisco-ios/sys/"
+          },
+          {
+            "text": "priv_"
+          },
+          {
+            "text": "auth",
+            "match": true
+          },
+          {
+            "text": "_fail.txt"
+          }
+        ],
+        "hitCount": 7
+      },
+      {
+        "repository": {
+          "slug": "65vse",
+          "id": 549,
+          "name": "65vSE",
+          "hierarchyId": "d6fa769e98c8db7198f7",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "project": {
+            "key": "RD",
+            "id": 437,
+            "name": "Research and Development",
+            "public": false,
+            "type": "NORMAL"
+          },
+          "public": true
+        },
+        "file": "scripts/configs/configuration.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 66,
+              "text": ""
+            },
+            {
+              "line": 67,
+              "text": " openstack-config --set &#x2F;etc&#x2F;glance&#x2F;glance-api.conf keystone_authtoken   <em>auth</em>_uri http:&#x2F;&#x2F;controller:5000"
+            },
+            {
+              "line": 68,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;glance&#x2F;glance-api.conf keystone_authtoken   <em>auth</em>_host controller"
+            },
+            {
+              "line": 69,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;glance&#x2F;glance-api.conf keystone_authtoken   <em>auth</em>_port 35357"
+            },
+            {
+              "line": 70,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;glance&#x2F;glance-api.conf keystone_authtoken   <em>auth</em>_protocol http"
+            },
+            {
+              "line": 71,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;glance&#x2F;glance-api.conf keystone_authtoken   admin_tenant_name service"
+            },
+            {
+              "line": 72,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;glance&#x2F;glance-api.conf keystone_authtoken   admin_user glance"
+            },
+            {
+              "line": 73,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;glance&#x2F;glance-api.conf keystone_authtoken   admin_password GLANCE_PASS"
+            },
+            {
+              "line": 74,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;glance&#x2F;glance-api.conf paste_deploy   flavor keystone"
+            },
+            {
+              "line": 75,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;glance&#x2F;glance-registry.conf keystone_authtoken   <em>auth</em>_uri http:&#x2F;&#x2F;controller:5000"
+            },
+            {
+              "line": 76,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;glance&#x2F;glance-registry.conf keystone_authtoken   <em>auth</em>_host controller"
+            },
+            {
+              "line": 77,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;glance&#x2F;glance-registry.conf keystone_authtoken   <em>auth</em>_port 35357"
+            },
+            {
+              "line": 78,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;glance&#x2F;glance-registry.conf keystone_authtoken   <em>auth</em>_protocol http"
+            },
+            {
+              "line": 79,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;glance&#x2F;glance-registry.conf keystone_authtoken   admin_tenant_name"
+            }
+          ],
+          [
+            {
+              "line": 143,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;nova&#x2F;nova.conf database connection mysql:&#x2F;&#x2F;nova:NOVA_DBPASS@controller&#x2F;nova"
+            },
+            {
+              "line": 144,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;nova&#x2F;nova.conf DEFAULT <em>auth</em>_strategy keystone"
+            },
+            {
+              "line": 145,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;nova&#x2F;nova.conf keystone_authtoken <em>auth</em>_uri http:&#x2F;&#x2F;controller:5000"
+            },
+            {
+              "line": 146,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;nova&#x2F;nova.conf keystone_authtoken <em>auth</em>_host controller"
+            },
+            {
+              "line": 147,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;nova&#x2F;nova.conf keystone_authtoken <em>auth</em>_protocol http"
+            },
+            {
+              "line": 148,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;nova&#x2F;nova.conf keystone_authtoken <em>auth</em>_port 35357"
+            },
+            {
+              "line": 149,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;nova&#x2F;nova.conf keystone_authtoken admin_user nova"
+            }
+          ],
+          [
+            {
+              "line": 173,
+              "text": ""
+            },
+            {
+              "line": 174,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;neutron&#x2F;neutron.conf DEFAULT   <em>auth</em>_strategy keystone"
+            },
+            {
+              "line": 175,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;neutron&#x2F;neutron.conf keystone_authtoken   <em>auth</em>_uri http:&#x2F;&#x2F;controller:5000"
+            },
+            {
+              "line": 176,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;neutron&#x2F;neutron.conf keystone_authtoken   <em>auth</em>_host controller"
+            },
+            {
+              "line": 177,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;neutron&#x2F;neutron.conf keystone_authtoken   <em>auth</em>_protocol http"
+            },
+            {
+              "line": 178,
+              "text": "# openstack-config --set &#x2F;etc&#x2F;neutron&#x2F;neutron.conf keystone_authtoken   <em>auth</em>_port 35357"
+            },
+            {
+              "line": 179,
+              "text": "# openstack-config"
+            }
+          ]
+        ],
+        "pathMatches": [],
+        "hitCount": 18
+      },
+      {
+        "repository": {
+          "slug": "firebase-activity-streaming",
+          "id": 190,
+          "name": "FireBase Activity Streaming",
+          "hierarchyId": "9d5a08e120d30527c025",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "project": {
+            "key": "ARS",
+            "id": 482,
+            "name": "Archives",
+            "description": "A project for archiving repos. If you're too afraid to delete the repo but want to clean up your project, put it here.",
+            "public": false,
+            "type": "NORMAL"
+          },
+          "public": false
+        },
+        "file": "activity-feed/README.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 4,
+              "text": "DB Access:\thttps:&#x2F;&#x2F;fiery-inferno-3966.firebaseio.com       "
+            },
+            {
+              "line": 5,
+              "text": "<em>Auth</em> Key: \tf196yM3tYdLKqFJzG1rsuO1Fjg1VQTPYQ9PJ9Dkq"
+            },
+            {
+              "line": 6,
+              "text": ""
+            },
+            {
+              "line": 7,
+              "text": "#"
+            },
+            {
+              "line": 8,
+              "text": "##Basic Deploy- Useful for netbot via netextract"
+            },
+            {
+              "line": 9,
+              "text": "#"
+            },
+            {
+              "line": 10,
+              "text": "wget -O fireact-cli &quot;https:&#x2F;&#x2F;stash.masergy.com&#x2F;projects&#x2F;MCF&#x2F;repos&#x2F;firebase-activity-streaming&#x2F;browse&#x2F;activity-feed&#x2F;scripts&#x2F;fireact-cli.pl?at=ad4e82dfc241995da728cfc2eae54907c4aa6e02&amp;raw&quot;"
+            },
+            {
+              "line": 11,
+              "text": ""
+            },
+            {
+              "line": 12,
+              "text": "#"
+            },
+            {
+              "line": 13,
+              "text": "##Get Chuck Norris to help make notes."
+            },
+            {
+              "line": 14,
+              "text": "#"
+            },
+            {
+              "line": 15,
+              "text": "activity-feed&#x2F;scripts&#x2F;go_chuck.sh"
+            },
+            {
+              "line": 16,
+              "text": ""
+            },
+            {
+              "line": 17,
+              "text": "#"
+            },
+            {
+              "line": 18,
+              "text": "##Get List of Topics."
+            },
+            {
+              "line": 19,
+              "text": "#"
+            },
+            {
+              "line": 20,
+              "text": "#v2"
+            },
+            {
+              "line": 21,
+              "text": "curl -s -o - -X GET &quot;https:&#x2F;&#x2F;fiery-inferno-3966.firebaseio.com&#x2F;boastv2.json?<em>auth</em>=f196yM3tYdLKqFJzG1rsuO1Fjg1VQTPYQ9PJ9Dkq&amp;print=pretty&amp;shallow=true&quot;"
+            },
+            {
+              "line": 22,
+              "text": "#V3"
+            },
+            {
+              "line": 23,
+              "text": "curl -s -o - -X GET &quot;https:&#x2F;&#x2F;fiery-inferno-3966.firebaseio.com&#x2F;boastv3&#x2F;topics.json?<em>auth</em>=f196yM3tYdLKqFJzG1rsuO1Fjg1VQTPYQ9PJ9Dkq&amp;print=pretty&amp;orderBy=\\&quot;LastMsgTime\\&quot;&amp;limitToFirst=2"
+            },
+            {
+              "line": 24,
+              "text": ""
+            },
+            {
+              "line": 25,
+              "text": "#"
+            },
+            {
+              "line": 26,
+              "text": "##Get Last messages from a topic."
+            },
+            {
+              "line": 27,
+              "text": "#"
+            },
+            {
+              "line": 28,
+              "text": "#v2"
+            },
+            {
+              "line": 29,
+              "text": "curl -s -o - -X GET &quot;https:&#x2F;&#x2F;fiery-inferno-3966.firebaseio.com&#x2F;boastv2&#x2F;fireactcli-nocserve03&#x2F;msgs.json?<em>auth</em>=f196yM3tYdLKqFJzG1rsuO1Fjg1VQTPYQ9PJ9Dkq&amp;print=pretty&amp;orderBy=\\&quot;MsgTime\\&quot;&amp;limitToLast=2&quot;"
+            },
+            {
+              "line": 30,
+              "text": "#v3"
+            },
+            {
+              "line": 31,
+              "text": "curl -s -o - -X GET &quot;https:&#x2F;&#x2F;fiery-inferno-3966.firebaseio.com&#x2F;boastv3&#x2F;topic_msgs&#x2F;fireactcli-nocserve03&#x2F;msgs.json?<em>auth</em>=f196yM3tYdLKqFJzG1rsuO1Fjg1VQTPYQ9PJ9Dkq&amp;print=pretty&amp;orderBy=\\&quot;MsgTime\\&quot;&amp;limitToLast=2&quot;"
+            }
+          ]
+        ],
+        "pathMatches": [],
+        "hitCount": 5
+      },
+      {
+        "repository": {
+          "slug": "legacy-ues",
+          "id": 673,
+          "name": "legacy-ues",
+          "description": "UES Legacy",
+          "hierarchyId": "b8a7da9a23e833b3ef25",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "project": {
+            "key": "UESDEV",
+            "id": 265,
+            "name": "UES Development",
+            "description": "Project for UES Development",
+            "public": false,
+            "type": "NORMAL"
+          },
+          "public": false
+        },
+        "file": "Product/Shared/Importers/Snort/snort-2.3.0/doc/signatures/1137.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 19,
+              "text": "An attacker can exploit a bug in Phorum&#x27;s "
+            },
+            {
+              "line": 20,
+              "text": "<em>auth</em>.php script to gain administration access using a universal password"
+            },
+            {
+              "line": 21,
+              "text": "(boogieman) supplied with the variable PHP_<em>AUTH</em>_USER. Phorum&#x27;s PHP "
+            },
+            {
+              "line": 22,
+              "text": "scripts rely on <em>auth</em>.php to authenticate the user."
+            },
+            {
+              "line": 23,
+              "text": ""
+            },
+            {
+              "line": 24,
+              "text": "--"
+            },
+            {
+              "line": 25,
+              "text": "Attack Scenarios:"
+            },
+            {
+              "line": 26,
+              "text": "The attacker requests &#x2F;admin.php?PHP_<em>AUTH</em>_USER=boogieman from the Phorum"
+            },
+            {
+              "line": 27,
+              "text": "PHP scripts. It is now possible to use the administration script to "
+            }
+          ]
+        ],
+        "pathMatches": [],
+        "hitCount": 4
+      },
+      {
+        "repository": {
+          "slug": "legacy-ues",
+          "id": 673,
+          "name": "legacy-ues",
+          "description": "UES Legacy",
+          "hierarchyId": "b8a7da9a23e833b3ef25",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "project": {
+            "key": "UESDEV",
+            "id": 265,
+            "name": "UES Development",
+            "description": "Project for UES Development",
+            "public": false,
+            "type": "NORMAL"
+          },
+          "public": false
+        },
+        "file": "Product/Shared/Importers/Snort/snort-2.3.0/doc/signatures/1936.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 9,
+              "text": "This event is generated when an attempt is made to exploit a buffer"
+            },
+            {
+              "line": 10,
+              "text": "overflow condition in the Post Office Protocol (POP) command <em>AUTH</em>."
+            },
+            {
+              "line": 11,
+              "text": ""
+            },
+            {
+              "line": 12,
+              "text": "--"
+            },
+            {
+              "line": 13,
+              "text": "Impact:"
+            },
+            {
+              "line": 14,
+              "text": "Possible remote execution of arbitrary code leading to a remote root "
+            },
+            {
+              "line": 15,
+              "text": "compromise."
+            },
+            {
+              "line": 16,
+              "text": ""
+            },
+            {
+              "line": 17,
+              "text": "--"
+            },
+            {
+              "line": 18,
+              "text": "Detailed Information:"
+            },
+            {
+              "line": 19,
+              "text": "A vulnerability exists such that an attacker may overflow a buffer by "
+            },
+            {
+              "line": 20,
+              "text": "sending data where a line feed character should occur to a POP server "
+            },
+            {
+              "line": 21,
+              "text": "via the <em>AUTH</em> command."
+            },
+            {
+              "line": 22,
+              "text": ""
+            },
+            {
+              "line": 23,
+              "text": "--"
+            },
+            {
+              "line": 24,
+              "text": "Attack Scenarios:"
+            },
+            {
+              "line": 25,
+              "text": "Simple. An attacker can supply specially crafted packets to a POP server"
+            },
+            {
+              "line": 26,
+              "text": "via the <em>AUTH</em> function. "
+            },
+            {
+              "line": 27,
+              "text": ""
+            }
+          ]
+        ],
+        "pathMatches": [],
+        "hitCount": 3
+      },
+      {
+        "repository": {
+          "slug": "matterhorn",
+          "id": 1454,
+          "name": "Matterhorn",
+          "hierarchyId": "6734314b952d85c3eb68",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "project": {
+            "key": "BIL",
+            "id": 323,
+            "name": "Billing",
+            "description": "This is creating to store code sets used in billing",
+            "public": false,
+            "type": "NORMAL"
+          },
+          "public": false
+        },
+        "file": "requirements.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 17,
+              "text": "six==1.15.0"
+            },
+            {
+              "line": 18,
+              "text": "social-<em></em>auth-app-django==4.0.0"
+            },
+            {
+              "line": 19,
+              "text": "social-<em>auth</em>-core==3.3.3"
+            },
+            {
+              "line": 20,
+              "text": "sqlparse==0.3.1"
+            }
+          ]
+        ],
+        "pathMatches": [],
+        "hitCount": 2
+      },
+      {
+        "repository": {
+          "slug": "nms-ansible",
+          "id": 704,
+          "name": "NMS Ansible",
+          "hierarchyId": "6fccfb35b05f29bc5b8f",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "project": {
+            "key": "NMS",
+            "id": 67,
+            "name": "Network Management Systems",
+            "description": "The NMS Team",
+            "public": false,
+            "type": "NORMAL"
+          },
+          "public": false
+        },
+        "file": "roles/netcool_itnm/files/mibs/NET-SNMP-VACM-MIB.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 60,
+              "text": "                  vacmAccessSecurityLevel,"
+            },
+            {
+              "line": 61,
+              "text": "                  nsVacm<em>Auth</em>Type"
+            },
+            {
+              "line": 62,
+              "text": "                }"
+            },
+            {
+              "line": 63,
+              "text": "    ::= { nsVacmAccessTable 1 }"
+            },
+            {
+              "line": 64,
+              "text": ""
+            },
+            {
+              "line": 65,
+              "text": "NsVacmAccessEntry ::= SEQUENCE"
+            },
+            {
+              "line": 66,
+              "text": "    {"
+            },
+            {
+              "line": 67,
+              "text": "        nsVacm<em>Auth</em>Type         SnmpAdminString,"
+            },
+            {
+              "line": 68,
+              "text": "        nsVacmContextMatch     INTEGER,"
+            },
+            {
+              "line": 69,
+              "text": "        nsVacmViewName         SnmpAdminString,"
+            },
+            {
+              "line": 70,
+              "text": "        nsVacmStorageType      StorageType,"
+            },
+            {
+              "line": 71,
+              "text": "        nsVacmStatus           RowStatus"
+            },
+            {
+              "line": 72,
+              "text": "    }"
+            },
+            {
+              "line": 73,
+              "text": ""
+            },
+            {
+              "line": 74,
+              "text": "nsVacm<em>Auth</em>Type OBJECT-TYPE"
+            },
+            {
+              "line": 75,
+              "text": "    SYNTAX       SnmpAdminString (SIZE("
+            }
+          ]
+        ],
+        "pathMatches": [],
+        "hitCount": 3
+      },
+      {
+        "repository": {
+          "slug": "nms",
+          "id": 58,
+          "name": "NMS",
+          "hierarchyId": "a5f13d54b523987b3068",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "project": {
+            "key": "NMS",
+            "id": 67,
+            "name": "Network Management Systems",
+            "description": "The NMS Team",
+            "public": false,
+            "type": "NORMAL"
+          },
+          "public": false
+        },
+        "file": "ITNM/mibs/NET-SNMP-VACM-MIB.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 60,
+              "text": "                  vacmAccessSecurityLevel,"
+            },
+            {
+              "line": 61,
+              "text": "                  nsVacm<em>Auth</em>Type"
+            },
+            {
+              "line": 62,
+              "text": "                }"
+            },
+            {
+              "line": 63,
+              "text": "    ::= { nsVacmAccessTable 1 }"
+            },
+            {
+              "line": 64,
+              "text": ""
+            },
+            {
+              "line": 65,
+              "text": "NsVacmAccessEntry ::= SEQUENCE"
+            },
+            {
+              "line": 66,
+              "text": "    {"
+            },
+            {
+              "line": 67,
+              "text": "        nsVacm<em>Auth</em>Type         SnmpAdminString,"
+            },
+            {
+              "line": 68,
+              "text": "        nsVacmContextMatch     INTEGER,"
+            },
+            {
+              "line": 69,
+              "text": "        nsVacmViewName         SnmpAdminString,"
+            },
+            {
+              "line": 70,
+              "text": "        nsVacmStorageType      StorageType,"
+            },
+            {
+              "line": 71,
+              "text": "        nsVacmStatus           RowStatus"
+            },
+            {
+              "line": 72,
+              "text": "    }"
+            },
+            {
+              "line": 73,
+              "text": ""
+            },
+            {
+              "line": 74,
+              "text": "nsVacm<em>Auth</em>Type OBJECT-TYPE"
+            },
+            {
+              "line": 75,
+              "text": "    SYNTAX       SnmpAdminString (SIZE("
+            }
+          ]
+        ],
+        "pathMatches": [],
+        "hitCount": 3
+      },
+      {
+        "repository": {
+          "slug": "netcool-rules",
+          "id": 94,
+          "name": "Netcool-Rules",
+          "hierarchyId": "c27dfe4956cac9fdbf70",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "project": {
+            "key": "NMS",
+            "id": 67,
+            "name": "Network Management Systems",
+            "description": "The NMS Team",
+            "public": false,
+            "type": "NORMAL"
+          },
+          "public": false
+        },
+        "file": "rules/include-syslog/alcatel_os/syslog-event-types.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 122,
+              "text": "   2017 sdpBindDHCPCoAError              WA  gen          0           0"
+            },
+            {
+              "line": 123,
+              "text": "   2018 sapDHCPSub<em>Auth</em>Error"
+            }
+          ],
+          [
+            {
+              "line": 123,
+              "text": "WA  gen          0           0"
+            },
+            {
+              "line": 124,
+              "text": "   2019 sdpBindDHCPSub<em>Auth</em>Error          WA  gen          0           0"
+            },
+            {
+              "line": 125,
+              "text": "   2020 tmnxVRtrDHCP6RelayLseStExceeded  WA  gen          0           0"
+            }
+          ],
+          [
+            {
+              "line": 181,
+              "text": "   2009 vRtrIsisAutTypeFail              WA  gen          0           0"
+            },
+            {
+              "line": 182,
+              "text": "   2010 vRtrIsis<em>Auth</em>Fail"
+            }
+          ]
+        ],
+        "pathMatches": [],
+        "hitCount": 3
+      },
+      {
+        "repository": {
+          "slug": "bwdev-mgr",
+          "id": 1108,
+          "name": "bwdev-mgr",
+          "description": "Broadworks Device manager",
+          "hierarchyId": "05e38b6d3da796d1043d",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "project": {
+            "key": "UCENG",
+            "id": 723,
+            "name": "UC Eng",
+            "description": "UC Eng",
+            "public": false,
+            "type": "NORMAL"
+          },
+          "public": false
+        },
+        "file": "data/config-templates/CiscoDBSExt.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 11,
+              "text": "&lt;Subscr_Sip_Reject_Anonymous_Calls_Enabled_$$EXT$$_&gt;disabled&lt;&#x2F;Subscr_Sip_Reject_Anonymous_Calls_Enabled_$$EXT$$_&gt;"
+            },
+            {
+              "line": 12,
+              "text": "&lt;<em>Auth</em>_ID_$$EXT$$_ ua=&quot;na&quot;&gt;%BWAUTHUSER-$$EXT$$%&lt;&#x2F;<em>Auth</em>_ID_$$EXT$$_&gt;"
+            },
+            {
+              "line": 13,
+              "text": "&lt;Password_$$EXT$$_ ua=&quot;na&quot;&gt;%BWAUTHPASSWORD-$$EXT$$%&lt;&#x2F;Password_$$EXT$$_&gt;"
+            }
+          ]
+        ],
+        "pathMatches": [],
+        "hitCount": 2
+      },
+      {
+        "repository": {
+          "slug": "sentry",
+          "id": 790,
+          "name": "sentry",
+          "hierarchyId": "1752798a7ed9168c1666",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "project": {
+            "key": "ARS",
+            "id": 482,
+            "name": "Archives",
+            "description": "A project for archiving repos. If you're too afraid to delete the repo but want to clean up your project, put it here.",
+            "public": false,
+            "type": "NORMAL"
+          },
+          "public": false
+        },
+        "file": "requirements.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 1,
+              "text": "python-ldap==3.1.0"
+            },
+            {
+              "line": 2,
+              "text": "sentry-ldap-<em>auth</em>==2.7"
+            }
+          ]
+        ],
+        "pathMatches": [],
+        "hitCount": 1
+      },
+      {
+        "repository": {
+          "slug": "nms-ansible",
+          "id": 705,
+          "name": "NMS Ansible",
+          "hierarchyId": "6fccfb35b05f29bc5b8f",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "origin": {
+            "slug": "nms-ansible",
+            "id": 704,
+            "name": "NMS Ansible",
+            "hierarchyId": "6fccfb35b05f29bc5b8f",
+            "scmId": "git",
+            "state": "AVAILABLE",
+            "statusMessage": "Available",
+            "forkable": true,
+            "project": {
+              "key": "NMS",
+              "id": 67,
+              "name": "Network Management Systems",
+              "description": "The NMS Team",
+              "public": false,
+              "type": "NORMAL"
+            },
+            "public": false
+          },
+          "project": {
+            "key": "~HCAMPBELL",
+            "id": 449,
+            "name": "Harold Campbell",
+            "type": "PERSONAL",
+            "owner": {
+              "name": "hcampbell",
+              "emailAddress": "harold.campbell@masergy.com",
+              "id": 2107,
+              "displayName": "Harold Campbell",
+              "active": true,
+              "slug": "hcampbell",
+              "type": "NORMAL"
+            }
+          },
+          "public": false
+        },
+        "file": "roles/netcool_itnm/files/mibs/NET-SNMP-VACM-MIB.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 60,
+              "text": "                  vacmAccessSecurityLevel,"
+            },
+            {
+              "line": 61,
+              "text": "                  nsVacm<em>Auth</em>Type"
+            },
+            {
+              "line": 62,
+              "text": "                }"
+            },
+            {
+              "line": 63,
+              "text": "    ::= { nsVacmAccessTable 1 }"
+            },
+            {
+              "line": 64,
+              "text": ""
+            },
+            {
+              "line": 65,
+              "text": "NsVacmAccessEntry ::= SEQUENCE"
+            },
+            {
+              "line": 66,
+              "text": "    {"
+            },
+            {
+              "line": 67,
+              "text": "        nsVacm<em>Auth</em>Type         SnmpAdminString,"
+            },
+            {
+              "line": 68,
+              "text": "        nsVacmContextMatch     INTEGER,"
+            },
+            {
+              "line": 69,
+              "text": "        nsVacmViewName         SnmpAdminString,"
+            },
+            {
+              "line": 70,
+              "text": "        nsVacmStorageType      StorageType,"
+            },
+            {
+              "line": 71,
+              "text": "        nsVacmStatus           RowStatus"
+            },
+            {
+              "line": 72,
+              "text": "    }"
+            },
+            {
+              "line": 73,
+              "text": ""
+            },
+            {
+              "line": 74,
+              "text": "nsVacm<em>Auth</em>Type OBJECT-TYPE"
+            },
+            {
+              "line": 75,
+              "text": "    SYNTAX       SnmpAdminString (SIZE("
+            }
+          ]
+        ],
+        "pathMatches": [],
+        "hitCount": 3
+      },
+      {
+        "repository": {
+          "slug": "guestbook",
+          "id": 1366,
+          "name": "guestbook",
+          "description": "Web app to log guests, grant/revoke Wi-Fi creds, and notify hosts of guest arrival.",
+          "hierarchyId": "6d7ad8b5a8292f183d6d",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "project": {
+            "key": "IT",
+            "id": 687,
+            "name": "IT",
+            "public": false,
+            "type": "NORMAL"
+          },
+          "public": false
+        },
+        "file": "requirements.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 3,
+              "text": "google-api-python-client"
+            },
+            {
+              "line": 4,
+              "text": "social-<em>auth</em>-app-django"
+            },
+            {
+              "line": 5,
+              "text": "gunicorn"
+            }
+          ]
+        ],
+        "pathMatches": [],
+        "hitCount": 1
+      },
+      {
+        "repository": {
+          "slug": "containerized-jenkins",
+          "id": 800,
+          "name": "Containerized-Jenkins",
+          "hierarchyId": "80ac44b1af11c8b01afc",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "project": {
+            "key": "~ODUARTE",
+            "id": 452,
+            "name": "Oscar Duarte",
+            "type": "PERSONAL",
+            "owner": {
+              "name": "oduarte",
+              "emailAddress": "oscar.duarte@masergy.com",
+              "id": 2139,
+              "displayName": "Oscar Duarte",
+              "active": false,
+              "slug": "oduarte",
+              "type": "NORMAL"
+            }
+          },
+          "public": false
+        },
+        "file": "jenkins-master/plugins.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 11,
+              "text": "docker-build-step"
+            },
+            {
+              "line": 12,
+              "text": "google-container-registry-<em>auth</em>"
+            },
+            {
+              "line": 13,
+              "text": "google-oauth-plugin"
+            }
+          ]
+        ],
+        "pathMatches": [],
+        "hitCount": 1
+      },
+      {
+        "repository": {
+          "slug": "netcool-rules",
+          "id": 1100,
+          "name": "Netcool-Rules",
+          "hierarchyId": "c27dfe4956cac9fdbf70",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "origin": {
+            "slug": "netcool-rules",
+            "id": 94,
+            "name": "Netcool-Rules",
+            "hierarchyId": "c27dfe4956cac9fdbf70",
+            "scmId": "git",
+            "state": "AVAILABLE",
+            "statusMessage": "Available",
+            "forkable": true,
+            "project": {
+              "key": "NMS",
+              "id": 67,
+              "name": "Network Management Systems",
+              "description": "The NMS Team",
+              "public": false,
+              "type": "NORMAL"
+            },
+            "public": false
+          },
+          "project": {
+            "key": "~ABOOK",
+            "id": 349,
+            "name": "Amy Book",
+            "type": "PERSONAL",
+            "owner": {
+              "name": "abook",
+              "emailAddress": "amy.book@masergy.com",
+              "id": 1407,
+              "displayName": "Amy Book",
+              "active": false,
+              "slug": "abook",
+              "type": "NORMAL"
+            }
+          },
+          "public": false
+        },
+        "file": "rules/include-syslog/alcatel_os/syslog-event-types.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 122,
+              "text": "   2017 sdpBindDHCPCoAError              WA  gen          0           0"
+            },
+            {
+              "line": 123,
+              "text": "   2018 sapDHCPSub<em>Auth</em>Error"
+            }
+          ],
+          [
+            {
+              "line": 123,
+              "text": "WA  gen          0           0"
+            },
+            {
+              "line": 124,
+              "text": "   2019 sdpBindDHCPSub<em>Auth</em>Error          WA  gen          0           0"
+            },
+            {
+              "line": 125,
+              "text": "   2020 tmnxVRtrDHCP6RelayLseStExceeded  WA  gen          0           0"
+            }
+          ],
+          [
+            {
+              "line": 181,
+              "text": "   2009 vRtrIsisAutTypeFail              WA  gen          0           0"
+            },
+            {
+              "line": 182,
+              "text": "   2010 vRtrIsis<em>Auth</em>Fail"
+            }
+          ]
+        ],
+        "pathMatches": [],
+        "hitCount": 3
+      },
+      {
+        "repository": {
+          "slug": "nms",
+          "id": 1043,
+          "name": "NMS",
+          "hierarchyId": "a5f13d54b523987b3068",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "origin": {
+            "slug": "nms",
+            "id": 58,
+            "name": "NMS",
+            "hierarchyId": "a5f13d54b523987b3068",
+            "scmId": "git",
+            "state": "AVAILABLE",
+            "statusMessage": "Available",
+            "forkable": true,
+            "project": {
+              "key": "NMS",
+              "id": 67,
+              "name": "Network Management Systems",
+              "description": "The NMS Team",
+              "public": false,
+              "type": "NORMAL"
+            },
+            "public": false
+          },
+          "project": {
+            "key": "ARS",
+            "id": 482,
+            "name": "Archives",
+            "description": "A project for archiving repos. If you're too afraid to delete the repo but want to clean up your project, put it here.",
+            "public": false,
+            "type": "NORMAL"
+          },
+          "public": true
+        },
+        "file": "ITNM/mibs/NET-SNMP-VACM-MIB.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 60,
+              "text": "                  vacmAccessSecurityLevel,"
+            },
+            {
+              "line": 61,
+              "text": "                  nsVacm<em>Auth</em>Type"
+            },
+            {
+              "line": 62,
+              "text": "                }"
+            },
+            {
+              "line": 63,
+              "text": "    ::= { nsVacmAccessTable 1 }"
+            },
+            {
+              "line": 64,
+              "text": ""
+            },
+            {
+              "line": 65,
+              "text": "NsVacmAccessEntry ::= SEQUENCE"
+            },
+            {
+              "line": 66,
+              "text": "    {"
+            },
+            {
+              "line": 67,
+              "text": "        nsVacm<em>Auth</em>Type         SnmpAdminString,"
+            },
+            {
+              "line": 68,
+              "text": "        nsVacmContextMatch     INTEGER,"
+            },
+            {
+              "line": 69,
+              "text": "        nsVacmViewName         SnmpAdminString,"
+            },
+            {
+              "line": 70,
+              "text": "        nsVacmStorageType      StorageType,"
+            },
+            {
+              "line": 71,
+              "text": "        nsVacmStatus           RowStatus"
+            },
+            {
+              "line": 72,
+              "text": "    }"
+            },
+            {
+              "line": 73,
+              "text": ""
+            },
+            {
+              "line": 74,
+              "text": "nsVacm<em>Auth</em>Type OBJECT-TYPE"
+            },
+            {
+              "line": 75,
+              "text": "    SYNTAX       SnmpAdminString (SIZE("
+            }
+          ]
+        ],
+        "pathMatches": [],
+        "hitCount": 3
+      },
+      {
+        "repository": {
+          "slug": "nms-ansible",
+          "id": 784,
+          "name": "NMS Ansible",
+          "hierarchyId": "6fccfb35b05f29bc5b8f",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "origin": {
+            "slug": "nms-ansible",
+            "id": 704,
+            "name": "NMS Ansible",
+            "hierarchyId": "6fccfb35b05f29bc5b8f",
+            "scmId": "git",
+            "state": "AVAILABLE",
+            "statusMessage": "Available",
+            "forkable": true,
+            "project": {
+              "key": "NMS",
+              "id": 67,
+              "name": "Network Management Systems",
+              "description": "The NMS Team",
+              "public": false,
+              "type": "NORMAL"
+            },
+            "public": false
+          },
+          "project": {
+            "key": "~APRICE",
+            "id": 102,
+            "name": "Alan Price",
+            "type": "PERSONAL",
+            "owner": {
+              "name": "aprice",
+              "emailAddress": "alan.price@masergy.com",
+              "id": 160,
+              "displayName": "Alan Price",
+              "active": true,
+              "slug": "aprice",
+              "type": "NORMAL"
+            }
+          },
+          "public": false
+        },
+        "file": "roles/netcool_itnm/files/mibs/NET-SNMP-VACM-MIB.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 60,
+              "text": "                  vacmAccessSecurityLevel,"
+            },
+            {
+              "line": 61,
+              "text": "                  nsVacm<em>Auth</em>Type"
+            },
+            {
+              "line": 62,
+              "text": "                }"
+            },
+            {
+              "line": 63,
+              "text": "    ::= { nsVacmAccessTable 1 }"
+            },
+            {
+              "line": 64,
+              "text": ""
+            },
+            {
+              "line": 65,
+              "text": "NsVacmAccessEntry ::= SEQUENCE"
+            },
+            {
+              "line": 66,
+              "text": "    {"
+            },
+            {
+              "line": 67,
+              "text": "        nsVacm<em>Auth</em>Type         SnmpAdminString,"
+            },
+            {
+              "line": 68,
+              "text": "        nsVacmContextMatch     INTEGER,"
+            },
+            {
+              "line": 69,
+              "text": "        nsVacmViewName         SnmpAdminString,"
+            },
+            {
+              "line": 70,
+              "text": "        nsVacmStorageType      StorageType,"
+            },
+            {
+              "line": 71,
+              "text": "        nsVacmStatus           RowStatus"
+            },
+            {
+              "line": 72,
+              "text": "    }"
+            },
+            {
+              "line": 73,
+              "text": ""
+            },
+            {
+              "line": 74,
+              "text": "nsVacm<em>Auth</em>Type OBJECT-TYPE"
+            },
+            {
+              "line": 75,
+              "text": "    SYNTAX       SnmpAdminString (SIZE("
+            }
+          ]
+        ],
+        "pathMatches": [],
+        "hitCount": 3
+      },
+      {
+        "repository": {
+          "slug": "nms",
+          "id": 988,
+          "name": "NMS",
+          "hierarchyId": "a5f13d54b523987b3068",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "origin": {
+            "slug": "nms",
+            "id": 58,
+            "name": "NMS",
+            "hierarchyId": "a5f13d54b523987b3068",
+            "scmId": "git",
+            "state": "AVAILABLE",
+            "statusMessage": "Available",
+            "forkable": true,
+            "project": {
+              "key": "NMS",
+              "id": 67,
+              "name": "Network Management Systems",
+              "description": "The NMS Team",
+              "public": false,
+              "type": "NORMAL"
+            },
+            "public": false
+          },
+          "project": {
+            "key": "~HCAMPBELL",
+            "id": 449,
+            "name": "Harold Campbell",
+            "type": "PERSONAL",
+            "owner": {
+              "name": "hcampbell",
+              "emailAddress": "harold.campbell@masergy.com",
+              "id": 2107,
+              "displayName": "Harold Campbell",
+              "active": true,
+              "slug": "hcampbell",
+              "type": "NORMAL"
+            }
+          },
+          "public": false
+        },
+        "file": "ITNM/mibs/NET-SNMP-VACM-MIB.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 60,
+              "text": "                  vacmAccessSecurityLevel,"
+            },
+            {
+              "line": 61,
+              "text": "                  nsVacm<em>Auth</em>Type"
+            },
+            {
+              "line": 62,
+              "text": "                }"
+            },
+            {
+              "line": 63,
+              "text": "    ::= { nsVacmAccessTable 1 }"
+            },
+            {
+              "line": 64,
+              "text": ""
+            },
+            {
+              "line": 65,
+              "text": "NsVacmAccessEntry ::= SEQUENCE"
+            },
+            {
+              "line": 66,
+              "text": "    {"
+            },
+            {
+              "line": 67,
+              "text": "        nsVacm<em>Auth</em>Type         SnmpAdminString,"
+            },
+            {
+              "line": 68,
+              "text": "        nsVacmContextMatch     INTEGER,"
+            },
+            {
+              "line": 69,
+              "text": "        nsVacmViewName         SnmpAdminString,"
+            },
+            {
+              "line": 70,
+              "text": "        nsVacmStorageType      StorageType,"
+            },
+            {
+              "line": 71,
+              "text": "        nsVacmStatus           RowStatus"
+            },
+            {
+              "line": 72,
+              "text": "    }"
+            },
+            {
+              "line": 73,
+              "text": ""
+            },
+            {
+              "line": 74,
+              "text": "nsVacm<em>Auth</em>Type OBJECT-TYPE"
+            },
+            {
+              "line": 75,
+              "text": "    SYNTAX       SnmpAdminString (SIZE("
+            }
+          ]
+        ],
+        "pathMatches": [],
+        "hitCount": 3
+      },
+      {
+        "repository": {
+          "slug": "nms-ansible",
+          "id": 768,
+          "name": "NMS Ansible",
+          "hierarchyId": "6fccfb35b05f29bc5b8f",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "origin": {
+            "slug": "nms-ansible",
+            "id": 704,
+            "name": "NMS Ansible",
+            "hierarchyId": "6fccfb35b05f29bc5b8f",
+            "scmId": "git",
+            "state": "AVAILABLE",
+            "statusMessage": "Available",
+            "forkable": true,
+            "project": {
+              "key": "NMS",
+              "id": 67,
+              "name": "Network Management Systems",
+              "description": "The NMS Team",
+              "public": false,
+              "type": "NORMAL"
+            },
+            "public": false
+          },
+          "project": {
+            "key": "ARS",
+            "id": 482,
+            "name": "Archives",
+            "description": "A project for archiving repos. If you're too afraid to delete the repo but want to clean up your project, put it here.",
+            "public": false,
+            "type": "NORMAL"
+          },
+          "public": false
+        },
+        "file": "roles/netcool_itnm/files/mibs/NET-SNMP-VACM-MIB.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 60,
+              "text": "                  vacmAccessSecurityLevel,"
+            },
+            {
+              "line": 61,
+              "text": "                  nsVacm<em>Auth</em>Type"
+            },
+            {
+              "line": 62,
+              "text": "                }"
+            },
+            {
+              "line": 63,
+              "text": "    ::= { nsVacmAccessTable 1 }"
+            },
+            {
+              "line": 64,
+              "text": ""
+            },
+            {
+              "line": 65,
+              "text": "NsVacmAccessEntry ::= SEQUENCE"
+            },
+            {
+              "line": 66,
+              "text": "    {"
+            },
+            {
+              "line": 67,
+              "text": "        nsVacm<em>Auth</em>Type         SnmpAdminString,"
+            },
+            {
+              "line": 68,
+              "text": "        nsVacmContextMatch     INTEGER,"
+            },
+            {
+              "line": 69,
+              "text": "        nsVacmViewName         SnmpAdminString,"
+            },
+            {
+              "line": 70,
+              "text": "        nsVacmStorageType      StorageType,"
+            },
+            {
+              "line": 71,
+              "text": "        nsVacmStatus           RowStatus"
+            },
+            {
+              "line": 72,
+              "text": "    }"
+            },
+            {
+              "line": 73,
+              "text": ""
+            },
+            {
+              "line": 74,
+              "text": "nsVacm<em>Auth</em>Type OBJECT-TYPE"
+            },
+            {
+              "line": 75,
+              "text": "    SYNTAX       SnmpAdminString (SIZE("
+            }
+          ]
+        ],
+        "pathMatches": [],
+        "hitCount": 3
+      },
+      {
+        "repository": {
+          "slug": "scripts",
+          "id": 1204,
+          "name": "scripts",
+          "hierarchyId": "c8cc0f09e62f9f0a1d29",
+          "scmId": "git",
+          "state": "AVAILABLE",
+          "statusMessage": "Available",
+          "forkable": true,
+          "project": {
+            "key": "VAUL",
+            "id": 636,
+            "name": "Vault",
+            "public": false,
+            "type": "NORMAL"
+          },
+          "public": false
+        },
+        "file": "ldap/notes.txt",
+        "hitContexts": [
+          [
+            {
+              "line": 1,
+              "text": "#<em>auth</em> string to vault"
+            },
+            {
+              "line": 2,
+              "text": "#vault login -method=ldap username=jadams"
+            }
+          ]
+        ],
+        "pathMatches": [],
+        "hitCount": 1
+      }
+    ]
+  },
+  "query": {
+    "substituted": false
+  }
+}

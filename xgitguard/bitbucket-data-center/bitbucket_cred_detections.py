@@ -16,9 +16,9 @@ limitations under the License.
 SPDX-License-Identifier: Apache-2.0
 """
 """
-xGitGuard Public GitHub Credential Detection Process
-    xGitGuard detects the secret keys and tokens present in the public Github repository
-    When Primary Keyword is given, run GitHub search with Primary Keyword
+xGitGuard Bitbucket Data Center Credential Detection Process
+    xGitGuard detects the secret keys and tokens present in the Bitbucket Data Center repository
+    When Primary Keyword is given, run Bitbucket search with Primary Keyword
     Else, run search with Secondary Keywords and Extension combination
     Steps:
         - Get Secondary Keywords and Extension file data from config path
@@ -36,19 +36,19 @@ xGitGuard Public GitHub Credential Detection Process
     By default all configuration keys will be taken from config files
 
     # Run with Primary Keywords, Secondary Keywords and Extensions from config files:
-    python public_cred_detections.py
+    python bitbucket_cred_detections.py
 
     # Run with Primary Keywords, Secondary Keywords and Extensions from config files with ML:
-    python public_cred_detections.py -m Yes
+    python bitbucket_cred_detections.py -m Yes
 
     # Run with Primary Keywords, Secondary Keywords from config file and given list of Extensions:
-    python public_cred_detections.py -e "py,txt"
+    python bitbucket_cred_detections.py -e "py,txt"
 
     # Run for given Primary Keyword, Secondary Keyword and Extension without ML prediction:
-    python public_cred_detections.py -p "abc.xyz.com" -s "password" -e "py
+    python bitbucket_cred_detections.py -p "abc.xyz.com" -s "password" -e "py
 
     # Run for given Primary Keyword, Secondary Keyword and Extension with ML prediction and debug console logging:
-    python public_cred_detections.py -p "abc.xyz.com" -s "password" -e "py" -m Yes -l 10 -c Yes
+    python bitbucket_cred_detections.py -p "abc.xyz.com" -s "password" -e "py" -m Yes -l 10 -c Yes
 """
 
 
@@ -73,10 +73,10 @@ from common.data_format import (
     format_commit_details,
     remove_url_from_creds,
 )
-from common.github_calls import (
-    get_github_public_commits,
-    public_url_content_get,
-    run_github_search,
+from common.bitbucket_calls import (
+    #get_github_public_commits,
+    bitbucket_url_content_get,
+    run_bitbucket_search,
 )
 
 from common.logger import create_logger
@@ -97,7 +97,7 @@ def calculate_confidence(secondary_keyword, extension, secret):
     params: secret - string - Detected secret
     returns: confidence score
     """
-    # logger.debug("<<<< 'Current Executing Function' >>>>")
+    logger.debug("<<<< 'Current Executing Function' >>>>")
     try:
         if not configs.confidence_values.empty:
             pass
@@ -160,6 +160,7 @@ def format_detection(pkeyword, skeyword, url, code_content, secrets, keyword_cou
     raw_url_splits = raw_url.split(repo_name)
     raw_url = raw_url_splits[0] + repo_name + "/blob" + raw_url_splits[1]
 
+    logger.error("here")
     try:
         file_path = "/".join(raw_url_splits[1].split("/")[2:])
         commits_api_url = configs.xgg_configs["github"]["public_commits_url"].format(
@@ -167,9 +168,8 @@ def format_detection(pkeyword, skeyword, url, code_content, secrets, keyword_cou
         )
         api_response_commit_data = get_github_public_commits(commits_api_url)
         commit_details = format_commit_details(api_response_commit_data)
-        logger.info(f"commit_details {commit_details}")
     except Exception as e:
-        logger.warning(f"Github commit content formation error: {e}")
+        logger.warning(f"Bitbucket commit content formation error: {e}")
         commit_details = {}
 
     secret_data.insert(0, commit_details)
@@ -254,7 +254,7 @@ def format_detection(pkeyword, skeyword, url, code_content, secrets, keyword_cou
 def process_search_urls(url_list, search_query):
     """
     Process the Search html url as below
-        Get code content from GitHub for the html url
+        Get code content from Bitbucket for the html url
         Remove Url data from code content
         Extract secret values using regex
         Format the secrets detected
@@ -272,7 +272,9 @@ def process_search_urls(url_list, search_query):
     extractor = URLExtract()
     try:
         for url in url_list:
-            code_content_response = public_url_content_get(url)
+            logger.info(f"url {url}")
+            time.sleep(throttle_seconds)
+            code_content_response = bitbucket_url_content_get(url)
             if code_content_response:
                 code_content = code_content_response.text
             else:
@@ -327,7 +329,7 @@ def process_search_urls(url_list, search_query):
                     f"Skipping secrets_data as length is not between 1 to 20. Length: {len(secrets_data)}"
                 )
     except Exception as e:
-        logger.error(f"Total Process Search (Exception Error): {e}")
+        logger.error(f"Total Process Search (Exception Error):", exc_info=e)
     return secrets_data_list
 
 
@@ -404,15 +406,16 @@ def process_search_results(search_response_lines, search_query, ml_prediction):
 
     url_list = []
     hashed_urls_file = os.path.join(
-        configs.output_dir, file_prefix + "public_hashed_url_creds.csv"
+        configs.output_dir, file_prefix + "bitbucket_hashed_url_creds.csv"
     )
-
+    logger.info(f"sdf {search_response_lines}")
+    url = configs.xgg_configs["bitbucket"]["data_center_url"]
     for line in search_response_lines:
-        html_url = line["html_url"]
-        html_url = html_url.replace("blob/", "")
-        html_url = html_url.replace(
-            "https://github.com", "https://raw.githubusercontent.com"
-        )
+        repo = line["repository"]
+        slug = repo["slug"]
+        key = repo["project"]["key"]
+        file = line["file"]
+        html_url =  url + '/projects/' + key + '/repos/' + slug + '/raw/' + file
         url_list.append(html_url)
 
     if url_list:
@@ -477,7 +480,7 @@ def process_search_results(search_response_lines, search_query, ml_prediction):
                                     secrets_ml_predicted, secrets_detected_file
                                 )
                             except Exception as e:
-                                logger.error(f"Process Error: {e}")
+                                logger.error(f"(1) Process Error while writing csv file: {e}")
                     else:
                         if not secrets_detected_df.empty:
                             detection_writes_per_query += secrets_detected_df.shape[0]
@@ -495,7 +498,7 @@ def process_search_results(search_response_lines, search_query, ml_prediction):
                                     secrets_detected_df, secrets_detected_file
                                 )
                             except Exception as e:
-                                logger.error(f"Process Error: {e}")
+                                logger.error(f"(2) Process Error while writing csv file: {e}")
 
                 else:
                     logger.debug(
@@ -549,14 +552,14 @@ def run_detection(
     ml_prediction=False,
 ):
     """
-    Run GitHub detections
+    Run Bitbucket detections
     If Primary Keyword is Given, run search with Primary Keyword
     Else run search with Secondary Keywords and extension combination
     Steps:
         Get Secondary Keywords and Extension file data from config path
         Prepare the search query list by combining Primary Keyword with each Secondary Keyword
         Loop over each extension for each search query
-            Search GitHub and get response data
+            Search Bitbucket and get response data
             Process the response urls
             If url is already processed in previous runs, skip the same
             Get the code content for the html urls
@@ -588,14 +591,7 @@ def run_detection(
         run_detection(extension = ["py","txt"])
     """
     logger.debug("<<<< 'Current Executing Function' >>>>")
-    # Read and Setup Global Configuration Data to reference in all process
-    try:
-        global configs
-        if configs:
-            pass
-    except:
-        # Setting Global configuration Data
-        configs = ConfigsData()
+
 
     if secondary_keywords:
         if isinstance(secondary_keywords, list):
@@ -632,7 +628,7 @@ def run_detection(
 
     total_processed_search, total_detection_writes = 0, 0
     search_query_list = []
-    # Format GitHub Search Query List
+    # Format Bitbucket Search Query List
     search_query_list = format_search_query_list(
         primary_keyword, configs.secondary_keywords
     )
@@ -659,6 +655,7 @@ def run_detection(
         logger.info(f"No Search query to process. Ending.")
         sys.exit(1)
 
+    logger.info(f"search_query_list '{search_query_list}'")
     # Loop over each extension for each search query
     for extension in configs.extensions:
         for search_query in search_query_list:
@@ -668,16 +665,20 @@ def run_detection(
             logger.info(
                 f"*******  Processing Search Query: '{search_query} extension:{extension}'  *******"
             )
+            # logger.info(f"config '{configs.xgg_configs}'")
             try:
-                # Search GitHub and return search response confidence_score
+                # Search Bitbucket and return search response confidence_score
                 total_processed_search += 1
-                time.sleep(2)
-                search_response_lines = run_github_search(
-                    configs.xgg_configs["github"]["public_api_url"],
+                time.sleep(throttle_seconds)
+                #TODO: this is the search function that needs to call bitbucket
+                logger.info("before")
+                search_response_lines = run_bitbucket_search(
+                    configs.xgg_configs["bitbucket"]["data_center_url"],
                     search_query,
                     extension,
-                    "public",
                 )
+                logger.info(f"bitbucket search '${search_response_lines}'")
+
                 # If search has detections, process the result urls else continue next search
                 if search_response_lines:
                     (
@@ -694,13 +695,12 @@ def run_detection(
                     )
                     total_detection_writes += detection_writes_per_query
                 else:
-                    # time.sleep(2)
                     logger.info(
                         f"Search '{search_query}' returns no results. Continuing..."
                     )
                     continue
             except Exception as e:
-                logger.error(f"Process Error: {e}")
+                logger.error(f"Process Error while searching response lines:", exc_info=e)
         logger.info(f"Current Total Processed Search: {total_processed_search}")
         logger.info(f"Current Total Detections Write: {total_detection_writes}")
 
@@ -816,7 +816,7 @@ def run_detections_from_list(
             while num_of_retry < max_retry:
                 try:
                     logger.info(
-                        f"Running GitHub Detections for Primary Keyword: {primary_keyword}"
+                        f"Running Bitbucket Detections for Primary Keyword: {primary_keyword}"
                     )
                     status = run_detection(
                         primary_keyword,
@@ -825,7 +825,7 @@ def run_detections_from_list(
                         ml_prediction,
                     )
                 except Exception as e:
-                    logger.error(f"Process Error: {e}")
+                    logger.error(f"Process Error during detection: {e}")
                     status = False
                     num_of_retry += 1
                 if status:
@@ -837,7 +837,7 @@ def run_detections_from_list(
             total_key_runs += 1
 
         logger.info(f"Total Primary Keyword Runs: {total_key_runs}")
-        logger.info(f"Total Successfull Runs: {success_key_runs}")
+        logger.info(f"Total Successful Runs: {success_key_runs}")
     else:
         logger.error(
             f"No Primary Keywords Given. Please check the input Keys List passed"
@@ -1014,18 +1014,29 @@ if __name__ == "__main__":
     # Setting up Logger
     setup_logger(log_level, console_logging)
 
+    # Read and Setup Global Configuration Data to reference in all process
+    try:
+        global configs
+        if configs:
+            pass
+    except:
+        # Setting Global configuration Data
+        configs = ConfigsData()
+
     logger.info("xGitGuard Credentials Detection Process Started")
     if ml_prediction:
         logger.info("Running the xGitGuard detection with ML Prediction filter")
     else:
         logger.info("Running the xGitGuard detection without ML Prediction filter")
 
-    valid_config, token_var = check_github_token_env("public")
-    if not valid_config:
+    logger.info(os.getenv("BITBUCKET_USER"))
+    if not os.getenv("BITBUCKET_USER") or not os.getenv("BITBUCKET_PASS"):
         logger.error(
-            f"GitHub API Token Environment variable '{token_var}' not set. API Search will fail/return no results. Please Setup and retry"
+            f"Bitbucket Credentials Environment variable 'BITBUCKET_USER' and 'BITBUCKET_PASS' must be set. API Search will fail/return no results. Please Setup and retry"
         )
         sys.exit(1)
+
+    throttle_seconds = configs.xgg_configs["bitbucket"]["throttle_seconds"]
 
     if primary_keywords:
         run_detections_from_list(
@@ -1033,12 +1044,5 @@ if __name__ == "__main__":
         )
     else:
         run_detections_from_file(secondary_keywords, extensions, ml_prediction)
-
-    secrets_detected_file = os.path.join(
-        configs.output_dir, "xgg_public_creds_detected.csv"
-    )
-
-    with open(secrets_detected_file, 'r') as fin:
-        logger.info(fin.read())
 
     logger.info("xGitGuard Credentials Detection Process Completed")
