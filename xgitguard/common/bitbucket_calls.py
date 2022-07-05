@@ -30,95 +30,125 @@ from requests.auth import HTTPBasicAuth
 
 logger = logging.getLogger("xgg_logger")
 
-def run_bitbucket_search(api_url, search_query, extension):
-    """
-    Run the Bitbucket API search with given search query
-    Get the items from the response content and Return
-    params: api_url - string - Bitbucket Search API url
-    params: search_query - string - Search keyword
-    params: extension - string - Search extension
-    returns: search_response - list
-    """
-    logger.debug("<<<< 'Current Executing Function' >>>>")
+class BitbucketCalls:
 
-    response = bitbucket_api_get_params(
-        api_url + '/rest/search/1.0/search', (search_query + "+extension:" + extension)
-    )
-    if response:
-        if response.status_code == 200:
-            content = response.json()
-            search_response = content["code"]["values"]
-            return search_response
+    def __init__(
+        self,
+        base_url,
+        username,
+        password,
+        commits_api_url,
+        throttle_time=2
+    ):
+        assert base_url is not None, "base_url must be present"
+        assert username is not None, "username must be present"
+        assert password is not None, "password must be present"
+        assert commits_api_url is not None, "commits_api_url must be present"
+        self._base_url = base_url
+        self._username = username
+        self._password = password
+        self._commits_api_url = commits_api_url
+        self._throttle_time = throttle_time
+
+    def run_bitbucket_search(self, search_query, extension):
+        """
+        Run the Bitbucket API search with given search query
+        Get the items from the response content and Return
+        params: search_query - string - Search keyword
+        params: extension - string - Search extension
+        returns: search_response - list
+        """
+        logger.debug("<<<< 'Current Executing Function' >>>>")
+
+        response = self.__bitbucket_api_get_params(
+            (search_query + "+extension:" + extension)
+        )
+        if response:
+            if response.status_code == 200:
+                content = response.json()
+                search_response = content["code"]["values"]
+                return search_response
+            else:
+                logger.error(f"Search Response code: {response.status_code}. Continuing...")
         else:
-            logger.error(f"Search Response code: {response.status_code}. Continuing...")
-    else:
-        logger.error(
-            f"Search '{search_query}' api call failed as {response}. Continuing..."
-        )
-    return []
+            logger.error(
+                f"Search '{search_query}' api call failed as {response}. Continuing..."
+            )
+        return []
+
+    def get_bitbucket_public_commits(self, url):
+        """
+        For the given Bitbucket details, call the api and get commit details
+        Get and return the response
+        returns: response - string
+        """
+        logger.debug("<<<< 'Current Executing Function' >>>>")
+        logger.info(f"url {url}")
 
 
-def bitbucket_api_get_params(api_url, search_query):
-    """
-    For the given Bitbucket API url and search query, call the api
-    Get and return the response
-    ### Need Bitbucket Credential as Env variable named "BITBUCKET_USER" & "BITBUCKET_PASS"
+        try:
+            time.sleep(self._throttle_time)
+            response = requests.get(
+                url,
+                params= {'blame': 'true'},
+                auth=HTTPBasicAuth(self._username, self._password),
+                timeout=25,
+            )
+            return response
+        except Exception as e:
+            logger.error(f"Bitbucket API commit content get Error:", exc_info=e)
+        return {}
 
-    params: api_url - string
-    params: search_query - string
-    returns: response - dict
-    """
-    logger.debug("<<<< 'Current Executing Function' >>>>")
+    def __bitbucket_api_get_params(self, search_query):
+        """
+        For the given Bitbucket API url and search query, call the api
+        Get and return the response
+        ### Need Bitbucket Credential as Env variable named "BITBUCKET_USER" & "BITBUCKET_PASS"
 
-    logger.info(f"apiurl '{api_url}', search_query: '{search_query}'")
+        params: search_query - string
+        returns: response - dict
+        """
+        logger.debug("<<<< 'Current Executing Function' >>>>")
 
-    try:
+        logger.info(f"apiurl '{self._base_url}', search_query: '{search_query}'")
 
-        #TODO: parameterize the json
-        response = requests.post(
-            api_url,
-            json={
-                'query':'auth extension:txt',
-                'entities': {'code':{}},
-                'limits': {'primary':100,'secondary':0}
-            },
-            headers={'Content-Type': "application/json"},
-            auth=HTTPBasicAuth(os.getenv("BITBUCKET_USER"), os.getenv("BITBUCKET_PASS")),
-        )
+        try:
+            response = requests.post(
+                self._base_url + '/rest/search/1.0/search', 
+                json={
+                    'query':'auth extension:txt project:~KONEAL',
+                    'entities': {'code':{}},
+                    'limits': {'primary':100,'secondary':0}
+                },
+                headers={'Content-Type': "application/json"},
+                auth=HTTPBasicAuth(self._username, self._password),
+            )
 
-        return response
+            return response
 
-    except Exception as e:
-        logger.error(f"Github API call Error: {e}")
+        except Exception as e:
+            logger.error(f"Bitbucket API call Error: {e}")
 
-    return {}
+        return {}
 
-def bitbucket_url_content_get(api_url):
-    """
-    For the given bitbucket url, call the api
-    Get and return the response
+    def bitbucket_url_content_get(self, file_url):
+        """
+        For the given bitbucket url, call the api
+        Get and return the response
 
-    params: api_url - string
-    returns: response - string
-    """
-    logger.info(f"here")
-    logger.debug("<<<< 'Current Executing Function' >>>>")
+        returns: response - string
+        """
+        logger.info(f"here")
+        logger.debug("<<<< 'Current Executing Function' >>>>")
 
-    token_var = "GITHUB_TOKEN"
-    if not os.getenv(token_var):
-        logger.error(
-            f"GitHub API Token Environment variable '{token_var}' not set. API Search will fail/return no results. Please Setup and retry"
-        )
-        sys.exit(1)
+        try:
+            response = requests.get(
+                file_url,
+                auth=HTTPBasicAuth(self._username, self._password),
+                timeout=10,
+            )
+            return response
+        except Exception as e:
+            logger.error(f"Bitbucket API file content get Error: {e}")
 
-    try:
-        response = requests.get(
-            api_url,
-            auth=HTTPBasicAuth(os.getenv("BITBUCKET_USER"), os.getenv("BITBUCKET_PASS")),
-            timeout=10,
-        )
-        return response
-    except Exception as e:
-        logger.error(f"Github API file content get Error: {e}")
-
-    return {}
+        return {}

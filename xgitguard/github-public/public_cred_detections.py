@@ -156,9 +156,11 @@ def format_detection(pkeyword, skeyword, url, code_content, secrets, keyword_cou
     extension = url.split(".")[-1]
     user_name = url.split("/")[3]
     repo_name = url.split("/")[4]
+    logger.info(f"url {url}")
     raw_url = url.replace("raw.githubusercontent.com", "github.com")
     raw_url_splits = raw_url.split(repo_name)
     raw_url = raw_url_splits[0] + repo_name + "/blob" + raw_url_splits[1]
+    logger.info(f"raw_url {raw_url}")
 
     try:
         file_path = "/".join(raw_url_splits[1].split("/")[2:])
@@ -180,6 +182,7 @@ def format_detection(pkeyword, skeyword, url, code_content, secrets, keyword_cou
     secret_data.insert(0, skeyword)
     secret_data.insert(0, pkeyword)
     secret_data.insert(0, "xGG_Public_Credential")
+    logger.info(f"secret_data {secret_data}")
     for secret in secrets:
         # Calculate confidence values for detected secrets
         confidence_score = calculate_confidence(skeyword, extension, secret)
@@ -281,7 +284,7 @@ def process_search_urls(url_list, search_query):
             try:
                 url_file_extension = url.split(".")[-1]
                 url_counts = extractor.find_urls(code_content)
-                if len(url_counts) > 30 or url_file_extension == "md":
+                if len(url_counts) > 1000 or url_file_extension == "md":
                     logger.debug(
                         f"Skip processing URL extract from code content as at url counts is beyond 30: {len(url_counts)}"
                     )

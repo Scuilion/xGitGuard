@@ -16,7 +16,8 @@ github:
 
 bitbucket:
   data_center_url: "https://stash.masergy.com"
-  throttle_seconds: 2
+  data_center_commits_url: "https://stash.masergy.com/repos/%s/%s/commits?path=%s"
+  throttle_time: 2
 
 secrets:
   public_data_columns:
