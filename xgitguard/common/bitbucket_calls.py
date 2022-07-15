@@ -59,9 +59,9 @@ class BitbucketCalls:
         returns: search_response - list
         """
         logger.debug("<<<< 'Current Executing Function' >>>>")
-
+        time.sleep(self._throttle_time)
         response = self.__bitbucket_api_get_params(
-            (search_query + "+extension:" + extension)
+            (search_query + " extension:" + extension)
         )
         if response:
             if response.status_code == 200:
@@ -83,8 +83,6 @@ class BitbucketCalls:
         returns: response - string
         """
         logger.debug("<<<< 'Current Executing Function' >>>>")
-        logger.info(f"url {url}")
-
 
         try:
             time.sleep(self._throttle_time)
@@ -110,13 +108,12 @@ class BitbucketCalls:
         """
         logger.debug("<<<< 'Current Executing Function' >>>>")
 
-        logger.info(f"apiurl '{self._base_url}', search_query: '{search_query}'")
-
         try:
             response = requests.post(
-                self._base_url + '/rest/search/1.0/search', 
+                self._base_url + '/rest/search/1.0/search',
                 json={
-                    'query':'auth extension:txt project:~KONEAL',
+                    # 'query': 'auth extension:txt project:~KONEAL',
+                    'query': search_query,
                     'entities': {'code':{}},
                     'limits': {'primary':100,'secondary':0}
                 },
@@ -138,7 +135,6 @@ class BitbucketCalls:
 
         returns: response - string
         """
-        logger.info(f"here")
         logger.debug("<<<< 'Current Executing Function' >>>>")
 
         try:

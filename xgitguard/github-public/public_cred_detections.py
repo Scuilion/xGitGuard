@@ -156,11 +156,9 @@ def format_detection(pkeyword, skeyword, url, code_content, secrets, keyword_cou
     extension = url.split(".")[-1]
     user_name = url.split("/")[3]
     repo_name = url.split("/")[4]
-    logger.info(f"url {url}")
     raw_url = url.replace("raw.githubusercontent.com", "github.com")
     raw_url_splits = raw_url.split(repo_name)
     raw_url = raw_url_splits[0] + repo_name + "/blob" + raw_url_splits[1]
-    logger.info(f"raw_url {raw_url}")
 
     try:
         file_path = "/".join(raw_url_splits[1].split("/")[2:])

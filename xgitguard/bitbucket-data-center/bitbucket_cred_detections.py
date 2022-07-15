@@ -148,7 +148,7 @@ def format_detection(skeyword, org_url, url, code_content, secrets, skeyword_cou
     secrets_data_list = []
     secret_data = []
     global unmask_secret
-    
+
     extension = url.split(".")[-1]
     project_name = url.split("/")[4]
     repo_name = url.split("/")[6]
@@ -168,7 +168,6 @@ def format_detection(skeyword, org_url, url, code_content, secrets, skeyword_cou
     secret_data.insert(0, raw_url)
     secret_data.insert(0, extension)
     secret_data.insert(0, skeyword)
-    secret_data.insert(0, pkeyword)
     secret_data.insert(0, "xGG_Bitbucket_Credential")
     for secret in secrets:
         # Calculate confidence values for detected secrets
@@ -223,7 +222,7 @@ def format_detection(skeyword, org_url, url, code_content, secrets, skeyword_cou
 
                 valid_secret_row.append(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
                 valid_secret_row.append(confidence_score[0])
-                count_score = math.log2(50) / (math.log2(sum(keyword_counts) + 1) + 1)
+                count_score = math.log2(50) / (math.log2(skeyword_count + 1) + 1)
                 valid_secret_row.append(count_score)
                 valid_secret_row.append(confidence_score[1])
                 d_match = math.log2(100) / (math.log2(confidence_score[2] + 1) + 1)
@@ -308,7 +307,7 @@ def process_search_urls(org_urls_list, url_list, search_query):
     """
     logger.debug("<<<< 'Current Executing Function' >>>>")
     # Processes search findings
-    skeyword = search_query.split(" ")[1].strip()
+    skeyword = search_query.split('"')[1].strip()
     secrets_data_list = []
     extractor = URLExtract()
     try:
@@ -445,12 +444,14 @@ def process_search_results(search_response_lines, search_query, ml_prediction):
     hashed_urls_file = os.path.join(
         configs.output_dir, file_prefix + "bitbucket_hashed_url_creds.csv"
     )
+
     for line in search_response_lines:
         repo = line["repository"]
         slug = repo["slug"]
         key = repo["project"]["key"]
         file = line["file"]
         html_url =  configs.xgg_configs["bitbucket"]["data_center_url"] + '/projects/' + key + '/repos/' + slug + '/raw/' + file
+        org_url_list.append(html_url);
         url_list.append(html_url)
 
     if url_list:
@@ -683,7 +684,6 @@ def run_detection(secondary_keywords=[], extensions=[], ml_prediction=False):
                     search_query,
                     extension,
                 )
-
                 # If search has detections, process the result urls else continue next search
                 if search_response_lines:
                     (
